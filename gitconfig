@@ -5,7 +5,7 @@
 	default = simple
 [core]
 	excludesfile = ~/.gitignore
-	editor = mate -w
+	editor = vim
 [color]
 	branch = auto
 	diff = auto
