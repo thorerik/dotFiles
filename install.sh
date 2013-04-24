@@ -8,3 +8,5 @@ function link()
 
 # files
 link tmux.conf
+link bashrc
+link vimrc 
