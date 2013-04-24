@@ -1,0 +1,6 @@
+# ignore noise from OS X
+.DS_Store
+
+# ignore swap & backup files
+.*.swp
+*~

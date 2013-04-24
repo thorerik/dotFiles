@@ -1,0 +1,30 @@
+[user]
+	email = thor@otc.nu
+	name = Thor Erik Lie
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = true
+	pager = true
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	old = red bold
+	new = green
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan

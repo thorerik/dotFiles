@@ -6,7 +6,12 @@ function link()
 }
 
 
+# directory
+[ ! -d ~/.config ] && link config
+
 # files
 link tmux.conf
 link bashrc
 link vimrc 
+link gitignore
+link gitconfig
