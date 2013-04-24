@@ -10,7 +10,8 @@ function machine
 end;
 # End functions for ifs
 
-if osx
+if osx 
+#if it's OS X we want Textmate to be the default editor
 	set EDITOR mate -w
 else
 	set EDITOR vim
