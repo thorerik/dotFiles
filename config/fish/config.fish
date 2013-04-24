@@ -11,7 +11,7 @@ end;
 # End functions for ifs
 
 if osx 
-#if it's OS X we want Textmate to be the default editor
+	#if it's OS X we want Textmate to be the default editor
 	set EDITOR mate -w
 else
 	set EDITOR vim
@@ -28,6 +28,7 @@ end;
 function rmhost
 	echo "Removing host on line $argv"
 	if osx
+		# When I use OSX I want gnu sed
 		gsed -i $argvd ~/.ssh/known_hosts
 	else
 	    sed -i $argvd ~/.ssh/known_hosts
@@ -72,6 +73,7 @@ end
 # end git prompt
 
 if osx
+	# on OSX we like gnu ls!
 	alias ls "gls $LS_OPTIONS -hF"
 	alias ll "gls $LS_OPTIONS -lhF"
 	alias l "gls $LS_OPTIONS -lAhF"
