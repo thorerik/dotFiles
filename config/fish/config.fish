@@ -1,8 +1,14 @@
+# Functions for ifs
 [ -e /Users/ ]; and set osx true
-
 function osx
 	true $argv
 end;
+
+[ -e ~/.config/fish/machine.fish ]; and set machine true
+function machine
+	true $argv
+end;
+# End functions for ifs
 
 if osx
 	set EDITOR mate -w
@@ -81,4 +87,6 @@ alias .. "cd .."
 
 # Import machine specific configs
 
-. ~/.config/fish/machine.fish
+if machine
+	. ~/.config/fish/machine.fish
+end;
