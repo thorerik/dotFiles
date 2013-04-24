@@ -29,9 +29,9 @@ function rmhost
 	echo "Removing host on line $argv"
 	if osx
 		# When I use OSX I want gnu sed
-		gsed -i $argvd ~/.ssh/known_hosts
+		gsed -i "$argv"d ~/.ssh/known_hosts
 	else
-	    sed -i $argvd ~/.ssh/known_hosts
+	    sed -i $argv d ~/.ssh/known_hosts
 	end;
 	echo "Removed host on line $argv"
 end;
