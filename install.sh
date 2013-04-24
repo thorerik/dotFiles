@@ -28,4 +28,4 @@ link vimrc
 link gitignore
 link gitconfig
 fishLink config.fish
-[ ! -e $HOME/.config/fish/machine.fish ]; && fishCp machine.fish
+[ ! -e $HOME/.config/fish/machine.fish ] && fishCp machine.fish
