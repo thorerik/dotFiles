@@ -16,7 +16,10 @@ function fishLink()
 {
 	ln -sf "${PWD}/config/fish/$1" "$HOME/.config/fish/$1"
 }
-
+function fishCp()
+{
+	cp "${PWD}/config/fish/$1" "$HOME/.config/fish/$1"
+}
 
 # files
 link tmux.conf
@@ -25,3 +28,4 @@ link vimrc
 link gitignore
 link gitconfig
 fishLink config.fish
+[ ! -e $HOME/.config/fish/machine.fish ]; && fishCp machine.fish
