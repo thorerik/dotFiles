@@ -1,5 +1,8 @@
 [ -e /Users/ ]; and set osx true
 
+function osx
+	true $argv
+end;
 
 if osx
 	set EDITOR mate -w
