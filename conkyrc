@@ -54,6 +54,8 @@ ${font sans-serif:normal:size=8}${color FFFF00}/ $alignc ${fs_used /} / ${fs_siz
 ${fs_bar /}
 Home $alignc ${fs_used /home/thor} / ${fs_size /home/thor} $alignr ${fs_used_perc /home/thor}%
 ${fs_bar /home/thor}
+RD $alignc ${fs_used /mnt/ramdisk} / ${fs_size /mnt/ramdisk} $alignr ${fs_used_perc /mnt/ramdisk}%
+${fs_bar /mnt/ramdisk}
 Backup $alignc ${fs_used /mnt/backups} / ${fs_size /mnt/backups} $alignr ${fs_used_perc /mnt/backups}%
 ${fs_bar /mnt/backups}
 
