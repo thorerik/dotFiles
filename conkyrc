@@ -1,0 +1,105 @@
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+#no_buffers yes
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Liberation Sans:size=8
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+#own_window_class Conky
+#own_window yes
+#own_window_type override
+#own_window_transparent yes
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+alignment top_left
+gap_x 25
+gap_y 40
+minimum_size 150 0
+maximum_width 150
+
+default_bar_size 150 8
+
+#########################
+# - Graphics settings - #
+#########################
+#draw_shades no
+
+default_color cccccc
+
+#adjust color here#
+color0 ffffff
+
+# -- Lua load -- #
+#lua_load ~/.conky/clock.lua
+#lua_draw_hook_pre draw_clock
+
+TEXT
+
+
+##############
+# - SYSTEM - #
+##############
+
+
+#${color0}${font Poky:size=16}S${font}${alignr}${color0}SYSTEM
+${voffset -2}${hr 2}
+${font}${color0}Kernel:  ${alignr}${color0}${kernel}${color}
+${font}${color0}Uptime: ${alignr}${uptime}
+# |--CPU
+#${color0}${font Poky:size=16}P${font}${alignr}${color0}PROCESSORS
+${voffset -2}${hr 2}
+${font}${color0}CPU OVERALL:
+${font}${cpubar cpu0}
+${font}${color0}CPU1: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu1}%${color}${font} ${alignr}${color0}
+${cpugraph cpu1 25,150 white white}
+${font}${color0}CPU2: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu2}%${color}${font} ${alignr}${color0}
+${cpugraph cpu2 25,150 white white}${color}
+${font}${color0}CPU3: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu3}%${color}${font} ${alignr}${color0}
+${cpugraph cpu3 25,150 white white}${color}
+${font}${color0}CPU4: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu4}%${color}${font} ${alignr}${color0}
+${cpugraph cpu3 25,150 white white}${color}
+${font}${color0}CPU5: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu5}%${color}${font} ${alignr}${color0}
+${cpugraph cpu3 25,150 white white}${color}
+${font}${color0}CPU6: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu6}%${color}${font} ${alignr}${color0}
+${cpugraph cpu3 25,150 white white}${color}
+${font}${color0}CPU7: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu7}%${color}${font} ${alignr}${color0}
+${cpugraph cpu3 25,150 white white}${color}
+${font}${color0}CPU8: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu8}%${color}${font} ${alignr}${color0}
+${cpugraph cpu3 25,150 white white}${color}
+# |--MEM
+#${color0}${font Poky:size=16}M${font}${alignr}${color0}MEMORY
+${voffset -2}${hr 2}
+${font}${color}${font}${color0}RAM: ${font Liberation Sans:style=Bold:size=16}${color0}$memperc% ${font}${color0}Used
+${membar}
+${font}${color0}${mem} / ${memmax}${font}${color0} Used
+# |--Hard Drive
+#${color0}${font Poky:size=16}y${font}${alignr}${color0}HARD DRIVES
+${voffset -2}${hr 2}
+${font}${color}${font}${color0}HD1: ${font Liberation Sans:style=Bold:size=16}${color0}${fs_free_perc /}% ${font}${color0}Free
+${fs_bar /}
+${font}${color0}${fs_used /} / ${fs_size /} Used
+
+################
+# - Network -  #
+################
+#${color0}${font Poky:size=16}w${font}${alignr}${color0}NETWORK
+${voffset -2}${hr 2}
+${font}${color0}Down ${downspeed eth0} k/s ${alignr}Up ${upspeed eth0} k/s
+${downspeedgraph eth0 25,70 white white}${color0} ${alignr}${upspeedgraph eth0 25,70 white white}
+${font}${color0}Total ${totaldown eth0} ${alignr}Total ${totalup eth0}

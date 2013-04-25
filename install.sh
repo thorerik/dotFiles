@@ -21,11 +21,15 @@ function fishCp()
 	cp "${PWD}/config/fish/$1" "$HOME/.config/fish/$1"
 }
 
+# Directories
+[ ! -e ~/.conky/ ] && link conky
+
 # files
 link tmux.conf
 link bashrc
 link vimrc 
 link gitignore
 link gitconfig
+link conkyrc
 fishLink config.fish
 [ ! -e $HOME/.config/fish/machine.fish ] && fishCp machine.fish
