@@ -1,105 +1,81 @@
-######################
-# - Conky settings - #
-######################
-update_interval 1
-total_run_times 0
-net_avg_samples 1
-cpu_avg_samples 1
-
-imlib_cache_size 0
-double_buffer yes
-#no_buffers yes
-
-#####################
-# - Text settings - #
-#####################
+background yes
 use_xft yes
-xftfont Liberation Sans:size=8
-override_utf8_locale yes
-text_buffer_size 2048
-
-#############################
-# - Window specifications - #
-#############################
-#own_window_class Conky
-#own_window yes
-#own_window_type override
-#own_window_transparent yes
-#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-
+xftfont Sans:size=8
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 100 100
+maximum_width 300
+maximum_height 1070
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+default_outline_color white
 alignment top_left
-gap_x 25
-gap_y 40
-minimum_size 150 0
-maximum_width 150
-
-default_bar_size 150 8
-
-#########################
-# - Graphics settings - #
-#########################
-#draw_shades no
-
-default_color cccccc
-
-#adjust color here#
-color0 ffffff
-
-# -- Lua load -- #
-#lua_load ~/.conky/clock.lua
-#lua_draw_hook_pre draw_clock
+gap_x 12
+gap_y 5
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
 
 TEXT
+${color FF9900}${font sans-serif:bold:size=8:}SYSTEM${hr 2}
+${color FFFF00}${font sans-serif:normal:size=8}$sysname $kernel $alignr $machine
+Host:$alignr$nodename
+Uptime:$alignr$uptime
 
+${font sans-serif:bold:size=8}${color FF9900}PROCESSORS ${hr 2}${font sans-serif:normal:size=8}${color 
+FFFF00}
+CPU0: ${cpu cpu0}% ${cpubar cpu0}
+CPU1: ${cpu cpu1}% ${cpubar cpu1}
+CPU2: ${cpu cpu2}% ${cpubar cpu1}
+CPU3: ${cpu cpu3}% ${cpubar cpu1}
+CPU4: ${cpu cpu4}% ${cpubar cpu1}
+CPU5: ${cpu cpu5}% ${cpubar cpu1}
+CPU6: ${cpu cpu6}% ${cpubar cpu1}
+CPU7: ${cpu cpu7}% ${cpubar cpu1}
+CPU8: ${cpu cpu8}% ${cpubar cpu1}
 
-##############
-# - SYSTEM - #
-##############
+${font sans-serif:bold:size=8}${color FF9900}MEMORY ${hr 2}
+${font sans-serif:normal:size=8}${color FFFF00}RAM $alignc $mem / $memmax $alignr $memperc%
+$membar
 
-
-#${color0}${font Poky:size=16}S${font}${alignr}${color0}SYSTEM
-${voffset -2}${hr 2}
-${font}${color0}Kernel:  ${alignr}${color0}${kernel}${color}
-${font}${color0}Uptime: ${alignr}${uptime}
-# |--CPU
-#${color0}${font Poky:size=16}P${font}${alignr}${color0}PROCESSORS
-${voffset -2}${hr 2}
-${font}${color0}CPU OVERALL:
-${font}${cpubar cpu0}
-${font}${color0}CPU1: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu1}%${color}${font} ${alignr}${color0}
-${cpugraph cpu1 25,150 white white}
-${font}${color0}CPU2: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu2}%${color}${font} ${alignr}${color0}
-${cpugraph cpu2 25,150 white white}${color}
-${font}${color0}CPU3: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu3}%${color}${font} ${alignr}${color0}
-${cpugraph cpu3 25,150 white white}${color}
-${font}${color0}CPU4: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu4}%${color}${font} ${alignr}${color0}
-${cpugraph cpu3 25,150 white white}${color}
-${font}${color0}CPU5: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu5}%${color}${font} ${alignr}${color0}
-${cpugraph cpu3 25,150 white white}${color}
-${font}${color0}CPU6: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu6}%${color}${font} ${alignr}${color0}
-${cpugraph cpu3 25,150 white white}${color}
-${font}${color0}CPU7: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu7}%${color}${font} ${alignr}${color0}
-${cpugraph cpu3 25,150 white white}${color}
-${font}${color0}CPU8: ${font Liberation Sans:style=Bold:size=16}${color0}${cpu cpu8}%${color}${font} ${alignr}${color0}
-${cpugraph cpu3 25,150 white white}${color}
-# |--MEM
-#${color0}${font Poky:size=16}M${font}${alignr}${color0}MEMORY
-${voffset -2}${hr 2}
-${font}${color}${font}${color0}RAM: ${font Liberation Sans:style=Bold:size=16}${color0}$memperc% ${font}${color0}Used
-${membar}
-${font}${color0}${mem} / ${memmax}${font}${color0} Used
-# |--Hard Drive
-#${color0}${font Poky:size=16}y${font}${alignr}${color0}HARD DRIVES
-${voffset -2}${hr 2}
-${font}${color}${font}${color0}HD1: ${font Liberation Sans:style=Bold:size=16}${color0}${fs_free_perc /}% ${font}${color0}Free
+${font sans-serif:bold:size=8}${color FF9900}DISKS ${hr 2} 
+${font sans-serif:normal:size=8}${color FFFF00}/ $alignc ${fs_used /} / ${fs_size /} $alignr${fs_used_perc /}%
 ${fs_bar /}
-${font}${color0}${fs_used /} / ${fs_size /} Used
+Home $alignc ${fs_used /home/thor} / ${fs_size /home/thor} $alignr ${fs_used_perc /home/thor}%
+${fs_bar /home/thor}
+Backup $alignc ${fs_used /mnt/backups} / ${fs_size /mnt/backups} $alignr ${fs_used_perc /mnt/backups}%
+${fs_bar /mnt/backups}
 
-################
-# - Network -  #
-################
-#${color0}${font Poky:size=16}w${font}${alignr}${color0}NETWORK
-${voffset -2}${hr 2}
-${font}${color0}Down ${downspeed eth0} k/s ${alignr}Up ${upspeed eth0} k/s
-${downspeedgraph eth0 25,70 white white}${color0} ${alignr}${upspeedgraph eth0 25,70 white white}
-${font}${color0}Total ${totaldown eth0} ${alignr}Total ${totalup eth0}
+${font sans-serif:bold:size=8}${color FF9900}TOP PROCESSES ${hr 2}
+${font sans-serif:normal:size=8}${color FFFF00}${top_mem name 1}${alignr}${top mem 1} %
+${top_mem name 2}${alignr}${top mem 2} %
+$font${top_mem name 3}${alignr}${top mem 3} %
+$font${top_mem name 4}${alignr}${top mem 4} %
+$font${top_mem name 5}${alignr}${top mem 5} %
+
+${font sans-serif:bold:size=8}${color FF9900}NETWORK ${hr 2}
+${font sans-serif:normal:size=8}${color FFFF00}IP address: $alignr ${addr eth0}
+#ESSID: $alignr ${wireless_essid eth0}
+#Connection Quality: $alignr ${wireless_link_qual_perc wlan0}%
+
+$alignr Download
+${downspeedgraph eth0}
+${downspeed eth0}/s $alignr ${totaldown eth0}
+
+$alignr Upload
+${upspeedgraph eth0}
+${upspeed eth0}/s $alignr ${totalup eth0}
+
+IPs
+${execi 100 ~/.conky/nmap.pl}
