@@ -8,6 +8,7 @@ end;
 function machine
 	true $argv
 end;
+
 # End functions for ifs
 
 if osx 
@@ -23,6 +24,51 @@ function fish_title
 	whoami
 	echo ': {' $_ '} '
 	pwd
+end;
+
+# Magic extract command
+function extract
+	if test -f $argv[1]
+		switch $argv[1]
+			case *.tar.bz2
+				tar xjf $argv[1]
+				return 0
+			case *.tar.gz
+				tar xzf $argv[1]
+				return 0
+			case *.bz2
+				bunzip2 $argv[1]
+				return 0
+			case *.rar
+				rar x $argv[1]
+				return 0
+			case *.gz
+				gunzip $argv[1]
+				return 0
+			case *.tar
+				tar xf $argv[1]
+				return 0
+			case *.tbz2
+				tar xjf $argv[1]
+				return 0
+			case *.tgz
+				tar xzf $argv[1]
+				return 0
+			case *.zip
+				unzip $argv[1]
+				return 0
+			case *.Z
+				uncompress $argv[1]
+				return 0
+			case *
+				echo "$argv[1] can not be extracted using extract"
+				return 1
+		end;
+	else
+		echo "$argv[1] is not a valid file"
+		return 1
+	end;
+	return 0
 end;
 
 function rmhost
@@ -63,10 +109,10 @@ function parse_git_branch
 end
 
 function fish_prompt
-  if test -d .git
-    printf '%s@%s %s%s%s:%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (parse_git_branch)
+  if test -d .git 
+    printf '%s@%s %s%s%s:%s(%s)> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (parse_git_branch) (echo $status)
   else
-    printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+    printf '%s@%s %s%s%s(%s)> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (echo $status)
   end
 end
 
