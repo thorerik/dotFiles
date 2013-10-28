@@ -8,12 +8,15 @@ set background=dark
 set t_Co=16
 set shiftwidth=3
 set ruler
-set smartindent
-set autoindent
 set enc=utf8
 set et
-syntax on
 highlight Normal guibg=Black guifg=White
+
+" ---- per host configuration ----
+let s:per_host_configuration = expand("~/.vim/settings")
+if filereadable(s:per_host_configuration)
+   execute ":source " . s:per_host_configuration
+endif
 
 " System dependent options
 set dictionary+=~/.dictionary                   " Dictionary
