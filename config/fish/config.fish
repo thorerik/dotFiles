@@ -89,7 +89,7 @@ end;
 # Magic command to add macaddress to allowed list!
 
 function addmacaddr
-	ssh admin@192.168.88.1 "/interface wireless access-list add forwarding=no authentication=yes interface=wlan1 mac-address=$argv"
+	ssh 10.0.0.3 "/interface wireless access-list add forwarding=no authentication=yes interface=wlan1 mac-address=$argv"
 end;	
 
 # git prompt
