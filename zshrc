@@ -64,7 +64,8 @@ export PATH=/Users/thor/PebbleSDK-1.12/arm-cs-tools/bin:/usr/local/sbin:/usr/loc
 export EDITOR="mate -w"
 export DISABLE_AUTO_TITLE=true
 
-export PGDATA="/usr/local/var/postgres"
+
+export PGDATA="/usr/local/var/postgres/9.3/"
 
 
 export HOMEBREW_GITHUB_API_TOKEN="661f723308d839ba2af84f517bf13fbd1a7b4eec"
