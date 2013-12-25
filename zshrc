@@ -61,7 +61,7 @@ eval `dircolors ~/.dir_colors`
 # Customize to your needs...
 export PATH=/Users/thor/PebbleSDK-1.12/arm-cs-tools/bin:/usr/local/sbin:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/thor/.rbenv/shims:/usr/local/share/npm/bin:/Users/thor/adt-bundle-mac-x86_64-20130917/sdk/platform-tools:/Users/thor/adt-bundle-mac-x86_64-20130917/sdk/tools:/Users/thor/.rvm/bin:/Users/thor/bin
 
-export EDITOR="mate -w"
+export EDITOR="vim"
 export DISABLE_AUTO_TITLE=true
 
 
@@ -83,6 +83,7 @@ extract () {
       case $1 in
          *.tar.bz2)  tar xjf $1              ;;
          *.tar.gz)   tar xzf $1              ;;
+         *.tgz)      tar xzf $1              ;;
          *.bz2)      bunzip2 $1              ;;
          *.rar)      rar x $1                ;;
          *.gz)    	 gunzip $1               ;;

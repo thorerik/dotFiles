@@ -384,3 +384,15 @@ if has("autocmd")
     augroup END
 endif " has ("autocmd")
 
+
+
+" tab navigation like firefox
+nnoremap <C-w>    :tabprevious<CR>
+nnoremap <C-e>    :tabnext<CR>
+nnoremap <C-t>    :tabnew<CR>
+inoremap <C-w>    <Esc>:tabprevious<CR>i
+inoremap <C-e>    <Esc>:tabnext<CR>i
+inoremap <C-t>    <Esc>:tabnew<CR>
+nnoremap <C-n>    :tabnew<CR>
+nnoremap <C-q>    :tabclose<CR>
+
