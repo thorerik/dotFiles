@@ -59,7 +59,7 @@ alias ls="ls --color=auto"
 eval `dircolors ~/.dir_colors`
 
 # Customize to your needs...
-export PATH=/Users/thor/PebbleSDK-1.12/arm-cs-tools/bin:/usr/local/sbin:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/thor/.rbenv/shims:/usr/local/share/npm/bin:/Users/thor/adt-bundle-mac-x86_64-20130917/sdk/platform-tools:/Users/thor/adt-bundle-mac-x86_64-20130917/sdk/tools:/Users/thor/.rvm/bin:/Users/thor/bin
+export PATH=/Users/thor/.rbenv/shims:/Users/thor/PebbleSDK-1.12/arm-cs-tools/bin:/usr/local/sbin:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/npm/bin:/Users/thor/adt-bundle-mac-x86_64-20130917/sdk/platform-tools:/Users/thor/adt-bundle-mac-x86_64-20130917/sdk/tools:/Users/thor/.rvm/bin:/Users/thor/bin
 
 export EDITOR="vim"
 export DISABLE_AUTO_TITLE=true
