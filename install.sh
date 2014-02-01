@@ -9,6 +9,8 @@ function link()
 [ ! -e ~/.conky/ ] && link conky
 
 # files
+link zshrc
+link dir_colors
 link tmux.conf
 link bashrc
 link vimrc 

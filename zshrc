@@ -15,8 +15,6 @@ alias startpgsql="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/s
 
 alias GET="lwp-request"
 
-alias startRamDisk="diskutil erasevolume HFS+ 'RAM Disk' `hdiutil attach -nomount ram://8388608`"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
