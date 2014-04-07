@@ -1,6 +1,9 @@
 # ignore noise from OS X
 .DS_Store
 
+# ignore intellidea crap
+.idea
+
 # ignore swap & backup files
 .*.swp
 *~

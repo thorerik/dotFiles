@@ -8,12 +8,8 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 # Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias startpgsql="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-
-alias GET="lwp-request"
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -44,10 +40,12 @@ COMPLETION_WAITING_DOTS="true"
 
 DEFAULT_USER="thor"
 
+HIST_STAMPS="dd.mm.yyyy"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx brew cp gnu-utils golang history mercurial nyan python ruby rvm ssh-agent sublime textmate themes tmuxinator web-search zsh-syntax-highlighting)
+plugins=(git cp history mercurial python ruby rvm battery ssh-agent sublime themes tmuxinator web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -56,25 +54,14 @@ export TERM=screen-256color
 alias ls="ls --color=auto"
 eval `dircolors ~/.dir_colors`
 
-# Customize to your needs...
-export PATH=/Users/thor/.rbenv/shims:/Users/thor/PebbleSDK-1.12/arm-cs-tools/bin:/usr/local/sbin:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/npm/bin:/Users/thor/adt-bundle-mac-x86_64-20130917/sdk/platform-tools:/Users/thor/adt-bundle-mac-x86_64-20130917/sdk/tools:/Users/thor/.rvm/bin:/Users/thor/bin
-
 export EDITOR="vim"
 export DISABLE_AUTO_TITLE=true
 
-
-export PGDATA="/usr/local/var/postgres/9.3/"
-
-
-export HOMEBREW_GITHUB_API_TOKEN="661f723308d839ba2af84f517bf13fbd1a7b4eec"
+source $HOME/.zsh_local
 
 p() { cd ~/src/$1; }
 _p() { _files -W ~/src -/; }
 compdef _p p
-
-add_key () {
-   ssh 10.0.0.3 "/interface wireless access-list add forwarding=no authentication=yes interface=wlan1 mac-address=$1"
-}
 
 extract () {
    if [ -f $1 ] ; then
@@ -98,15 +85,5 @@ extract () {
    fi
 }
 
-unalias run-help
-autoload run-help
-HELPDIR=/usr/local/share/zsh/helpfiles
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:/Users/thor/perl5";
-export PERL_MB_OPT="--install_base /Users/thor/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/Users/thor/perl5";
-export PERL5LIB="/Users/thor/perl5/lib/perl5:$PERL5LIB";
-export PATH="/Users/thor/perl5/bin:$PATH";
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
