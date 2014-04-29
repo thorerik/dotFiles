@@ -3,10 +3,10 @@ set nomodeline
 set cursorcolumn
 set cursorline
 set backspace=eol,indent,start
-set tabstop=3
+set tabstop=4
 set background=dark
 set t_Co=16
-set shiftwidth=3
+set shiftwidth=4
 set ruler
 set enc=utf8
 set et

@@ -57,6 +57,10 @@ eval `dircolors ~/.dir_colors`
 export EDITOR="vim"
 export DISABLE_AUTO_TITLE=true
 
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 source $HOME/.zsh_local
 
 p() { cd ~/src/$1; }
@@ -84,6 +88,31 @@ extract () {
       echo "'$1' is not a valid file"
    fi
 }
+
+
+# Make IGNORE_EOF work like in bash
+#setopt IGNORE_EOF
+#IGNOREEOF=1
+bash-ctrl-d() {
+	if [[ $CURSOR == 0 && -z $BUFFER ]]
+	then
+		[[ -z $IGNOREEOF || $IGNOREEOF == 0 ]] && exit
+		if [[ $LASTWIDGET == bash-ctrl-d ]]
+		then
+			(( --__BASH_IGNORE_EOF <= 0 )) && exit
+		else
+			(( __BASH_IGNORE_EOF = IGNOREEOF-1 ))
+		fi
+		echo -n Use \"logout\" to leave the shell.
+		zle send-break
+	else
+		zle delete-char-or-list
+	fi
+}
+#zle -N bash-ctrl-d
+#bindkey "^D" bash-ctrl-d
+
+setopt SHORT_LOOPS             # Allow short form of loops.
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
