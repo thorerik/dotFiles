@@ -48,12 +48,12 @@ HIST_STAMPS="dd.mm.yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cp history mercurial python ruby rvm battery ssh-agent sublime themes tmuxinator web-search)
+plugins=(git cp history python ruby rvm ssh-agent themes)
 
 source $ZSH/oh-my-zsh.sh
 
 
-alias ls="ls --color=auto"
+alias ls="gls --color=auto"
 eval `dircolors ~/.dir_colors`
 
 export EDITOR="vim"
@@ -115,4 +115,4 @@ bash-ctrl-d() {
 setopt SHORT_LOOPS             # Allow short form of loops.
 
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin:/$HOME/bin
