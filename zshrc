@@ -53,7 +53,7 @@ plugins=(git cp history python ruby rvm ssh-agent themes)
 source $ZSH/oh-my-zsh.sh
 
 
-alias ls="gls --color=auto"
+alias ls="gls -v --color=auto"
 eval `dircolors ~/.dir_colors`
 
 export EDITOR="vim"
