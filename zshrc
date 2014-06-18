@@ -53,7 +53,7 @@ plugins=(git cp history mercurial python ruby rvm battery ssh-agent sublime them
 source $ZSH/oh-my-zsh.sh
 
 
-alias ls="ls --color=auto"
+alias ls="ls -v --color=auto"
 eval `dircolors ~/.dir_colors`
 
 export EDITOR="vim"
