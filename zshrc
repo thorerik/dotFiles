@@ -52,10 +52,13 @@ plugins=(git cp history python ruby rvm ssh-agent themes)
 
 source $ZSH/oh-my-zsh.sh
 
-
-alias ls="gls -v --color=auto"
-eval `dircolors ~/.dir_colors`
-
+if hash gls 2> /dev/null; then
+    alias ls="gls -v --color=auto"
+    eval `gdircolors ~/.dir_colors`
+else
+    alias ls="ls -v --color=auto"
+    eval `dircolors ~/.dir_colors`
+fi
 export EDITOR="vim"
 export DISABLE_AUTO_TITLE=true
 
