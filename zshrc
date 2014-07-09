@@ -57,7 +57,9 @@ if hash gls 2> /dev/null; then
     eval `gdircolors ~/.dir_colors`
 else
     alias ls="ls -v --color=auto"
-    eval `dircolors ~/.dir_colors`
+    if hash dircolors 2> /dev/null; then
+        eval `dircolors ~/.dir_colors`
+    fi
 fi
 export EDITOR="vim"
 export DISABLE_AUTO_TITLE=true
