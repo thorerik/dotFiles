@@ -56,7 +56,7 @@ if hash gls 2> /dev/null; then
     alias ls="gls -v --color=auto"
     eval `gdircolors ~/.dir_colors`
 else
-    alias ls="ls -v --color=auto"
+    alias ls="ls " # assume we are using a dumb LS
     if hash dircolors 2> /dev/null; then
         eval `dircolors ~/.dir_colors`
     fi
