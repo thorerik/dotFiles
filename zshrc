@@ -75,23 +75,23 @@ compdef _p p
 extract () {
    if [ -f $1 ] ; then
       case $1 in
-         *.tar.bz2)  tar xjf $1              ;;
-         *.tar.gz)   tar xzf $1              ;;
-         *.tgz)      tar xzf $1              ;;
-         *.bz2)      bunzip2 $1              ;;
-         *.rar)      rar x $1                ;;
-         *.gz)    	 gunzip $1               ;;
-         *.tar)      tar xf $1               ;;
-         *.tbz2)     tar xjf $1              ;;
-		 *.tbz)		 tar xjf $1				 ;;
-         *.tgz)      tar xzf $1              ;;
-         *.zip)      unzip $1                ;;
-         *.Z)     	 uncompress $1           ;;
-         *)    echo "'$1' cannot be extracted via extract()"   ;;
+        *.tar.bz2) tar xjf $1                                      ;;
+        *.tar.gz)  tar xzf $1                                      ;;
+        *.tgz)     tar xzf $1                                      ;;
+        *.bz2)     bunzip2 $1                                      ;;
+        *.rar)     rar x $1                                        ;;
+        *.gz)      gunzip $1                                       ;;
+        *.tar)     tar xf $1                                       ;;
+        *.tbz2)    tar xjf $1                                      ;;
+        *.tbz)      tar xjf $1                                     ;;
+        *.tgz)     tar xzf $1                                      ;;
+        *.zip)     unzip $1                                        ;;
+        *.Z)       uncompress $1                                   ;;
+        *)         echo "'$1' cannot be extracted via extract()"   ;;
       esac
    else
       echo "'$1' is not a valid file"
-   fi
+  fi
 }
 
 
@@ -99,20 +99,20 @@ extract () {
 #setopt IGNORE_EOF
 #IGNOREEOF=1
 bash-ctrl-d() {
-	if [[ $CURSOR == 0 && -z $BUFFER ]]
-	then
-		[[ -z $IGNOREEOF || $IGNOREEOF == 0 ]] && exit
-		if [[ $LASTWIDGET == bash-ctrl-d ]]
-		then
-			(( --__BASH_IGNORE_EOF <= 0 )) && exit
-		else
-			(( __BASH_IGNORE_EOF = IGNOREEOF-1 ))
-		fi
-		echo -n Use \"logout\" to leave the shell.
-		zle send-break
-	else
-		zle delete-char-or-list
-	fi
+    if [[ $CURSOR == 0 && -z $BUFFER ]]
+    then
+        [[ -z $IGNOREEOF || $IGNOREEOF == 0 ]] && exit
+        if [[ $LASTWIDGET == bash-ctrl-d ]]
+        then
+            (( --__BASH_IGNORE_EOF <= 0 )) && exit
+        else
+            (( __BASH_IGNORE_EOF = IGNOREEOF-1 ))
+        fi
+        echo -n Use \"logout\" to leave the shell.
+        zle send-break
+    else
+        zle delete-char-or-list
+    fi
 }
 #zle -N bash-ctrl-d
 #bindkey "^D" bash-ctrl-d
