@@ -1,4 +1,4 @@
-#!bash -x
+#!bash
 
 function link()
 {
@@ -17,3 +17,5 @@ link vimrc
 link gitignore
 link gitconfig
 link conkyrc
+
+return 0
