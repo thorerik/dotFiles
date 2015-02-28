@@ -99,9 +99,8 @@ extract () {
   fi
 }
 
-function gi() { 
-    curl -L -s https://www.gitignore.io/api/\$@ ;
-}
+function gi() { curl -L -s https://www.gitignore.io/api/$1 ; }
+
 
 
 # Make IGNORE_EOF work like in bash
