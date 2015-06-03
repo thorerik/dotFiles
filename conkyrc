@@ -1,20 +1,28 @@
-background yes
+background no
 use_xft yes
 xftfont Sans:size=8
 xftalpha 1
 update_interval 1.0
 total_run_times 0
 
+#own_window yes
+#own_window_class Conky
+#own_window_type normal
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#own_window_transparent yes
+
+own_window_argb_visual true
+own_window_argb_value 0
+own_window_type desktop
 own_window yes
-own_window_class Conky
-own_window_type normal 
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager  
 own_window_transparent yes
+own_window_type normal
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 double_buffer yes
 minimum_size 100 100
-maximum_width 300
-maximum_height 1070
+maximum_width 400
+#maximum_height 1070
 draw_shades yes
 draw_outline no
 draw_borders no
@@ -23,7 +31,7 @@ default_color white
 default_shade_color black
 default_outline_color white
 alignment top_left
-gap_x 12
+gap_x 2570
 gap_y 5
 no_buffers yes
 uppercase no
@@ -31,36 +39,52 @@ cpu_avg_samples 2
 override_utf8_locale no
 
 TEXT
-${color FF9900}${font sans-serif:bold:size=8:}SYSTEM${hr 2}
+${color FF9900}${font sans-serif:bold:size=8:}SYSTEM ${hr 2}
 ${color FFFF00}${font sans-serif:normal:size=8}$sysname $kernel $alignr $machine
 Host:$alignr$nodename
 Uptime:$alignr$uptime
 
-${font sans-serif:bold:size=8}${color FF9900}PROCESSORS ${hr 2}${font sans-serif:normal:size=8}${color 
-FFFF00}
+${color FF9900}${font sans-serif:bold:size=8:}MPD ${hr 2}
+${color FFFF00}${font sans-serif:norma:size=8}${if_empty $mpd_artist}${else}$mpd_artist - ${endif}${if_empty $mpd_title}${else}${if_match "${mpd_title}" == "EuroTruck Radio"}${exec ~/.conky/etrnp}${else}$mpd_title${endif}${endif}
+${if_match "${mpd_length}" == "0:00"}${if_match "${mpd_title}" == "EuroTruck Radio"}Euro Truck Radio${else}Stream${endif}${else}$mpd_bar
+$mpd_elapsed/$mpd_length${endif}${if_match "${mpd_title}" == "EuroTruck Radio"}
+${execi 60 ~/.conky/etrdj}${endif}
+
+${font sans-serif:bold:size=8}${color FF9900}PROCESSORS ${hr 2}${font sans-serif:normal:size=8}${color FFFF00}
 CPU0: ${cpu cpu0}% ${cpubar cpu0}
 CPU1: ${cpu cpu1}% ${cpubar cpu1}
-CPU2: ${cpu cpu2}% ${cpubar cpu1}
-CPU3: ${cpu cpu3}% ${cpubar cpu1}
-CPU4: ${cpu cpu4}% ${cpubar cpu1}
-CPU5: ${cpu cpu5}% ${cpubar cpu1}
-CPU6: ${cpu cpu6}% ${cpubar cpu1}
-CPU7: ${cpu cpu7}% ${cpubar cpu1}
-CPU8: ${cpu cpu8}% ${cpubar cpu1}
+CPU2: ${cpu cpu2}% ${cpubar cpu2}
+CPU3: ${cpu cpu3}% ${cpubar cpu3}
+CPU4: ${cpu cpu4}% ${cpubar cpu4}
+CPU5: ${cpu cpu5}% ${cpubar cpu5}
+CPU6: ${cpu cpu6}% ${cpubar cpu6}
+CPU7: ${cpu cpu7}% ${cpubar cpu7}
+CPU8: ${cpu cpu8}% ${cpubar cpu8}
 
 ${font sans-serif:bold:size=8}${color FF9900}MEMORY ${hr 2}
 ${font sans-serif:normal:size=8}${color FFFF00}RAM $alignc $mem / $memmax $alignr $memperc%
 $membar
 
-${font sans-serif:bold:size=8}${color FF9900}DISKS ${hr 2} 
+${font sans-serif:bold:size=8}${color FF9900}GPU ${hr 2}
+${font sans-serif:normal:size=8}${color FFFF00}TEMP $alignr${nvidia temp}${iconv_start UTF-8 ISO_8859-1}° ${iconv_stop}
+${font sans-serif:normal:size=8}${color FFFF00}GPU Freq $alignr${nvidia gpufreq}MHz
+${font sans-serif:normal:size=8}${color FFFF00}Mem Freq $alignr${nvidia memfreq}MHz
+
+${font sans-serif:bold:size=8}${color FF9900}DISKS ${hr 2}
 ${font sans-serif:normal:size=8}${color FFFF00}/ $alignc ${fs_used /} / ${fs_size /} $alignr${fs_used_perc /}%
 ${fs_bar /}
-Home $alignc ${fs_used /home/thor} / ${fs_size /home/thor} $alignr ${fs_used_perc /home/thor}%
-${fs_bar /home/thor}
-RD $alignc ${fs_used /mnt/ramdisk} / ${fs_size /mnt/ramdisk} $alignr ${fs_used_perc /mnt/ramdisk}%
-${fs_bar /mnt/ramdisk}
-Backup $alignc ${fs_used /mnt/backups} / ${fs_size /mnt/backups} $alignr ${fs_used_perc /mnt/backups}%
-${fs_bar /mnt/backups}
+NAS $alignc ${fs_used /home/thor/shares} / ${fs_size /home/thor/shares} $alignr ${fs_used_perc /home/thor/shares}%
+${fs_bar /home/thor/shares}
+Slow $alignc ${fs_used /mnt/slow} / ${fs_size /mnt/slow} $alignr ${fs_used_perc /mnt/slow}%
+${fs_bar /mnt/slow}
+
+$alignr Read
+${diskiograph_read sda}
+${diskio_read sda}
+
+$alignr Write
+${diskiograph_write sda}
+${diskio_write sda}
 
 ${font sans-serif:bold:size=8}${color FF9900}TOP PROCESSES ${hr 2}
 ${font sans-serif:normal:size=8}${color FFFF00}${top_mem name 1}${alignr}${top mem 1} %
@@ -70,14 +94,14 @@ $font${top_mem name 4}${alignr}${top mem 4} %
 $font${top_mem name 5}${alignr}${top mem 5} %
 
 ${font sans-serif:bold:size=8}${color FF9900}NETWORK ${hr 2}
-${font sans-serif:normal:size=8}${color FFFF00}eth0: $alignr ${addr eth0}
-${font sans-serif:normal:size=8}${color FFFF00}eth1: $alignr ${addr eth1}
-${font sans-serif:normal:size=8}${color FFFF00}ham0: $alignr ${addr ham0}
+${font sans-serif:normal:size=8}${color FFFF00}rt: $alignr ${addr enp13s0}
+${font sans-serif:normal:size=8}${color FFFF00}intel: $alignr ${addr eno1}
+${font sans-serif:normal:size=8}${color FFFF00}vbox: $alignr ${addr vboxnet0}
 
 $alignr Download
-${downspeedgraph eth0}
-${downspeed eth0}/s $alignr ${totaldown eth0}
+${downspeedgraph eno1}
+${downspeed eno1}/s $alignr ${totaldown eno1}
 
 $alignr Upload
-${upspeedgraph eth0}
-${upspeed eth0}/s $alignr ${totalup eth0}
+${upspeedgraph eno1}
+${upspeed eno1}/s $alignr ${totalup eno1}
