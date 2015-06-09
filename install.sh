@@ -7,6 +7,7 @@ function link()
 
 # Directories
 [ ! -e ~/.conky/ ] && link conky
+[ ! -e ~/.ncmpcpp/ ] && link ncmpcpp
 
 # files
 link zshrc
@@ -17,5 +18,3 @@ link vimrc
 link gitignore
 link gitconfig
 link conkyrc
-
-return 0
