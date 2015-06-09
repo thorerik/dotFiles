@@ -5,12 +5,6 @@ xftalpha 1
 update_interval 1.0
 total_run_times 0
 
-#own_window yes
-#own_window_class Conky
-#own_window_type normal
-#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-#own_window_transparent yes
-
 own_window_argb_visual true
 own_window_argb_value 0
 own_window_type desktop
@@ -20,8 +14,8 @@ own_window_type normal
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 double_buffer yes
-minimum_size 100 100
-maximum_width 400
+minimum_size 1400 250
+maximum_width 250
 #maximum_height 1070
 draw_shades yes
 draw_outline no
@@ -43,12 +37,14 @@ ${color FF9900}${font sans-serif:bold:size=8:}SYSTEM ${hr 2}
 ${color FFFF00}${font sans-serif:normal:size=8}$sysname $kernel $alignr $machine
 Host:$alignr$nodename
 Uptime:$alignr$uptime
+Load:$alignr$loadavg
+$loadgraph
 
 ${color FF9900}${font sans-serif:bold:size=8:}MPD ${hr 2}
-${color FFFF00}${font sans-serif:norma:size=8}${if_empty $mpd_artist}${else}$mpd_artist - ${endif}${if_empty $mpd_title}${else}${if_match "${mpd_title}" == "EuroTruck Radio"}${exec ~/.conky/etrnp}${else}$mpd_title${endif}${endif}
+${color FFFF00}${font sans-serif:norma:size=8}${iconv_start UTF-8 ISO_8859-1}${if_empty $mpd_artist}${else}$mpd_artist - ${endif}${if_empty $mpd_title}${else}${if_match "${mpd_title}" == "EuroTruck Radio"}${exec ~/.conky/etrnp}${else}$mpd_title${endif}${endif}
 ${if_match "${mpd_length}" == "0:00"}${if_match "${mpd_title}" == "EuroTruck Radio"}Euro Truck Radio${else}Stream${endif}${else}$mpd_bar
 $mpd_elapsed/$mpd_length${endif}${if_match "${mpd_title}" == "EuroTruck Radio"}
-${execi 60 ~/.conky/etrdj}${endif}
+${execi 60 ~/.conky/etrdj}${endif}${iconv_stop}
 
 ${font sans-serif:bold:size=8}${color FF9900}PROCESSORS ${hr 2}${font sans-serif:normal:size=8}${color FFFF00}
 CPU0: ${cpu cpu0}% ${cpubar cpu0}
@@ -78,14 +74,6 @@ ${fs_bar /home/thor/shares}
 Slow $alignc ${fs_used /mnt/slow} / ${fs_size /mnt/slow} $alignr ${fs_used_perc /mnt/slow}%
 ${fs_bar /mnt/slow}
 
-$alignr Read
-${diskiograph_read sda}
-${diskio_read sda}
-
-$alignr Write
-${diskiograph_write sda}
-${diskio_write sda}
-
 ${font sans-serif:bold:size=8}${color FF9900}TOP PROCESSES ${hr 2}
 ${font sans-serif:normal:size=8}${color FFFF00}${top_mem name 1}${alignr}${top mem 1} %
 ${top_mem name 2}${alignr}${top mem 2} %
@@ -94,7 +82,6 @@ $font${top_mem name 4}${alignr}${top mem 4} %
 $font${top_mem name 5}${alignr}${top mem 5} %
 
 ${font sans-serif:bold:size=8}${color FF9900}NETWORK ${hr 2}
-${font sans-serif:normal:size=8}${color FFFF00}rt: $alignr ${addr enp13s0}
 ${font sans-serif:normal:size=8}${color FFFF00}intel: $alignr ${addr eno1}
 ${font sans-serif:normal:size=8}${color FFFF00}vbox: $alignr ${addr vboxnet0}
 

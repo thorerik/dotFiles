@@ -129,3 +129,5 @@ setopt SHORT_LOOPS             # Allow short form of loops.
 
 
 PATH=$PATH:$HOME/.rvm/bin:/$HOME/bin
+
+[ -s "/home/thor/.dnx/dnvm/dnvm.sh" ] && . "/home/thor/.dnx/dnvm/dnvm.sh" # Load dnvm

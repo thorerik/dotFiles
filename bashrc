@@ -117,3 +117,5 @@ extract () {
 PROMPT_COMMAND=''
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+[ -s "/home/thor/.dnx/dnvm/dnvm.sh" ] && . "/home/thor/.dnx/dnvm/dnvm.sh" # Load dnvm
