@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash 
 
 function link()
 {
@@ -8,7 +8,8 @@ function link()
 function xdg_link()
 {
     [ ! -e ~/.config ] && mkdir ~/.config
-    ln -sf "${PWD}/$i" "$HOME/.config/$1"
+
+    ln -sf "${PWD}/$1" "$HOME/.config/$1"
 }
 # Directories
 [ ! -e ~/.conky/ ] && link conky
