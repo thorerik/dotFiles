@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Needs pyCrypto
+# easy_install pyCrypto
+function openstream {
+  livestreamer -Q http://tv.nrk.no/direkte/${1} best
+}
+
+if [ ! ${1} ]
+then
+
+  echo "1) NRK 1"
+  echo "2) NRK 2"
+  echo "3) NRK 3"
+  echo "4) NRK Super"
+
+  read stream
+
+  case ${stream} in
+    1)  openstream nrk1
+        ;;
+    2)  openstream nrk2
+        ;;
+    3)  openstream nrk3
+        ;;
+    4)  openstream nrksuper
+        ;;
+  esac
+
+else
+  openstream ${1}
+fi
