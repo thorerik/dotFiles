@@ -5,6 +5,7 @@
 	default = simple
 [core]
 	excludesfile = ~/.gitignore
+	editor = nvim
 [color]
 	branch = auto
 	diff = auto
@@ -28,3 +29,5 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[alias]
+	lol = log --pretty=oneline --abbrev-commit --graph --decorate
