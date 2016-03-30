@@ -16,6 +16,13 @@ function xdg_link()
 [ ! -e ~/.ncmpcpp/ ] && link ncmpcpp
 [ ! -e ~/.config/nvim ] && xdg_link nvim
 
+# Deps
+if hash git 2>/dev/null; then
+    git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+else 
+    echo >&2 "Git is not installed, zgen not installed."
+fi
+
 # files
 link zshrc
 link dir_colors
