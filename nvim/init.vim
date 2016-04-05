@@ -7,6 +7,9 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 
+" Meow 
+Plug 'elixir-lang/vim-elixir'
+
 Plug 'altercation/vim-colors-solarized'
 
 " UltiSnips + Snippets
