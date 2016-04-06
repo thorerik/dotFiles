@@ -1,6 +1,7 @@
 [user]
-	email = thor@otc.nu
+	email = thor@thorerik.com
 	name = Thor Erik Lie
+	signingkey = C2175DAB
 [push]
 	default = simple
 [core]
@@ -31,3 +32,5 @@
 	untracked = cyan
 [alias]
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+[commit]
+	gpgsign = true
