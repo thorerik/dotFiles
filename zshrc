@@ -11,6 +11,8 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/python
   zgen oh-my-zsh plugins/ruby
   zgen oh-my-zsh plugins/ssh-agent
+  zgen oh-my-zsh plugins/composer
+  zgen oh-my-zsh plugins/laravel5
 
   zgen oh-my-zsh themes/steeef
 
