@@ -22,6 +22,8 @@ Plug 'vim-scripts/cream-showinvisibles'
 
 Plug 'jwalton512/vim-blade'
 
+Plug 'thorerik/vim-mutt-helper'
+
 call plug#end()
 
 let g:deoplete#enable_at_startup=1
