@@ -11,10 +11,12 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/python
   zgen oh-my-zsh plugins/ruby
   zgen oh-my-zsh plugins/ssh-agent
+#  zgen oh-my-zsh plugins/gpg-agent
   zgen oh-my-zsh plugins/composer
   zgen oh-my-zsh plugins/laravel5
 
-  zgen oh-my-zsh themes/steeef
+#  zgen oh-my-zsh themes/steeef
+  zgen load nojhan/liquidprompt
 
   zgen load chrissicool/zsh-256color
   zgen load joel-porquet/zsh-dircolors-solarized

@@ -32,3 +32,4 @@ link vimrc
 link gitignore
 link gitconfig
 link conkyrc
+xdg_link liquidpromptrc
