@@ -16,6 +16,8 @@ if ! zgen saved; then
 
   zgen load nojhan/liquidprompt
 
+  zgen load bobthecow/git-flow-completion
+
   zgen load chrissicool/zsh-256color
   zgen load joel-porquet/zsh-dircolors-solarized
   zgen load rimraf/k

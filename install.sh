@@ -32,4 +32,5 @@ link vimrc
 link gitignore
 link gitconfig
 link conkyrc
+link i3status.conf
 xdg_link liquidpromptrc
