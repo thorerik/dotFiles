@@ -30,6 +30,9 @@ let g:deoplete#enable_at_startup=1
 let mapleader=","
 
 set background=dark
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termcolors = 256
 colorscheme solarized
 
 set nomodeline
