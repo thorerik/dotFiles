@@ -27,6 +27,8 @@ Plug 'jwalton512/vim-blade'
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'mhinz/vim-startify'
+
 Plug 'thorerik/vim-mutt-helper'
 
 call plug#end()
