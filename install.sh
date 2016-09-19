@@ -18,7 +18,13 @@ function xdg_link()
 
 # Deps
 if hash git 2>/dev/null; then
-    git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+    if [ -d ~/.zgen ]; then
+        # if Zgen is installed, ensure that it generates a new loader
+        rm ~/.zgen/init.zsh    
+    else
+        # install Zgen
+        git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+    fi
 else 
     echo >&2 "Git is not installed, zgen not installed."
 fi

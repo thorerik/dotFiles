@@ -60,8 +60,12 @@ colorscheme solarized
 set nomodeline
 set cursorcolumn
 set cursorline
-set backspace=eol,indent,start
+set backspace=indent,eol,start
 set tabstop=4
+set complete-=i
+set smarttab
+set shiftwidth=4
+set expandtab
 set showbreak=+++\
 set ss=1
 set siso=9
