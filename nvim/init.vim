@@ -1,3 +1,6 @@
+" -*- mode: vimrc -*-
+"vim: ft=vim
+
 " le plugins https://github.com/junegunn/vim-plug
 " http://patrickmarchand.com/posts/neovim-tuto.html
 call plug#begin('~/.config/nvim/plugged')
