@@ -13,6 +13,13 @@ Plug 'Raimondi/delimitMate'
 " Meow 
 Plug 'elixir-lang/vim-elixir'
 
+" Typescript
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'jason0x43/vim-js-indent'
+Plug 'leafgarland/typescript-vim'
+
 Plug 'altercation/vim-colors-solarized'
 
 " UltiSnips + Snippets
@@ -62,6 +69,7 @@ set scrolloff=4
 set previewheight=7
 set splitbelow
 set splitright
+set encoding=utf-8
 
 """"" SNIPPETS """"""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
