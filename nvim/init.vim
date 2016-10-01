@@ -33,6 +33,8 @@ Plug 'vim-scripts/cream-showinvisibles'
 Plug 'jwalton512/vim-blade'
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 
 Plug 'mhinz/vim-startify'
 
@@ -50,6 +52,7 @@ if !exists('g:sp_airline_disable_powerline_fonts') || g:sp_airline_disable_power
   let g:airline_powerline_fonts = 1                                                                                                                                                                 
   let g:airline_symbols.space = "\ua0"                                                                                                                                                              
 endif
+let g:airline_theme='murmur'
 
 set background=dark
 let g:solarized_visibility = "high"
