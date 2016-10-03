@@ -13,6 +13,9 @@ Plug 'Raimondi/delimitMate'
 " Meow 
 Plug 'elixir-lang/vim-elixir'
 
+" Puppet
+Plug 'rodjek/vim-puppet'
+
 " Typescript
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Quramy/tsuquyomi'
@@ -76,8 +79,9 @@ set scrolloff=4
 set previewheight=7
 set splitbelow
 set splitright
-set encoding=utf-8
-
+if !has('nvim')
+  set encoding=utf-8
+endif
 """"" SNIPPETS """"""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
