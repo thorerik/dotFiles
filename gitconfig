@@ -33,4 +33,4 @@
 [alias]
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 [commit]
-	gpgsign = true
+	gpgsign = false
