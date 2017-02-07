@@ -29,6 +29,12 @@ if ! zgen saved; then
   zgen save
 fi
 
+if command -v nvim 2>/dev/null >&2; then
+    alias vim="nvim"
+    export EDITOR="nvim"
+else
+    export EDITOR="vim"
+fi
 
 if [[ -e ~/.zsh_local ]]; then
     source ~/.zsh_local
