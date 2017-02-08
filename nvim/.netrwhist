@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/thor/src/mp/puppet'
-let g:netrw_dirhist_2='/Users/thor/src/mp/puppet/environments'
-let g:netrw_dirhist_3='/Users/thor/src/mp/puppet/environments/common'
-let g:netrw_dirhist_4='/Users/thor/src/mp/puppet/environments/common/ourpackages'
-let g:netrw_dirhist_5='/Users/thor/src/mp/puppet/environments/common/ourpackages/manifests'
-let g:netrw_dirhist_6='/Users/thor/src/mp/puppet'
