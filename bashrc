@@ -119,8 +119,8 @@ PROMPT_COMMAND=''
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [ -s "/home/thor/.dnx/dnvm/dnvm.sh" ] && . "/home/thor/.dnx/dnvm/dnvm.sh" # Load dnvm
-export DISPLAY=:0.0
-command -v zsh &> /dev/null && exec zsh
+#export DISPLAY=:0.0
+#command -v zsh &> /dev/null && exec zsh
 
 export NVM_DIR="/home/thor/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
