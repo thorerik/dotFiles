@@ -15,6 +15,7 @@ function xdg_link()
 [ ! -e ~/.conky/ ] && link conky
 [ ! -e ~/.ncmpcpp/ ] && link ncmpcpp
 [ ! -e ~/.config/nvim ] && xdg_link nvim
+[ ! -e ~/.config/i3 ] && xdg_link i3
 
 # Deps
 if hash git 2>/dev/null; then
