@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 function link_config()
 {
@@ -12,7 +12,7 @@ function xdg_link_config()
     ln -sf "${PWD}/config/$1" "$HOME/.config/$1"
 }
 
-function bin_link()
+function link_bin()
 {
    [ ! -e ~/bin ] && mkdir ~/bin
    ln -sf "${PWD}/bin/$1" "$HOME/bin/$1"
@@ -28,12 +28,12 @@ function bin_link()
 if hash git 2>/dev/null; then
     if [ -d ~/.zgen ]; then
         # if Zgen is installed, ensure that it generates a new loader
-        rm ~/.zgen/init.zsh    
+        rm ~/.zgen/init.zsh
     else
         # install Zgen
         git clone https://github.com/tarjoilija/zgen.git ~/.zgen
     fi
-else 
+else
     echo >&2 "Git is not installed, zgen not installed."
 fi
 
@@ -42,12 +42,12 @@ link_config zshrc
 link_config dir_colors
 link_config tmux.conf
 link_config bashrc
-link_config vimrc 
+link_config vimrc
 link_config gitignore
 link_config gitconfig
 link_config conkyrc
 link_config i3status.conf
 xdg_link_config liquidpromptrc
 
-bin_link nrk
-bin_link screenshot
+link_bin nrk
+link_bin screenshot
