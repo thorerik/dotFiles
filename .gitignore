@@ -1,4 +1,4 @@
-/conky/vendor
-/ncmpcpp/error.log
-/nvim/plugged
-/nvim/.netrwhist
+/config/conky/vendor
+/config/ncmpcpp/error.log
+/config/nvim/plugged
+/config/nvim/.netrwhist

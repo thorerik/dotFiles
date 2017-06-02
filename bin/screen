@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+DATE=`date +"%Y%m%d%H%M%S"`
+
+FILENAME="$DATE.png"
+
+shutter -s -o $FILENAME -e
+
+aws s3 cp $FILENAME s3://thor-image-uploads/ --acl=public-read
+rm $FILENAME
+
+echo -n "https://static.thorerik.com/$FILENAME" | xclip -selection c

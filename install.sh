@@ -1,21 +1,28 @@
 #!/usr/bin/env bash 
 
-function link()
+function link_config()
 {
-    ln -sf "${PWD}/$1" "$HOME/.$1"
+    ln -sf "${PWD}/config/$1" "$HOME/.$1"
 }
 
-function xdg_link()
+function xdg_link_config()
 {
     [ ! -e ~/.config ] && mkdir ~/.config
 
-    ln -sf "${PWD}/$1" "$HOME/.config/$1"
+    ln -sf "${PWD}/config/$1" "$HOME/.config/$1"
 }
+
+function bin_link()
+{
+   [ ! -e ~/bin ] && mkdir ~/bin
+   ln -sf "${PWD}/bin/$1" "$HOME/bin/$1"
+}
+
 # Directories
-[ ! -e ~/.conky/ ] && link conky
-[ ! -e ~/.ncmpcpp/ ] && link ncmpcpp
-[ ! -e ~/.config/nvim ] && xdg_link nvim
-[ ! -e ~/.config/i3 ] && xdg_link i3
+[ ! -e ~/.conky/ ] && link_config conky
+[ ! -e ~/.ncmpcpp/ ] && link_config ncmpcpp
+[ ! -e ~/.config/nvim ] && xdg_link_config nvim
+[ ! -e ~/.config/i3 ] && xdg_link_config i3
 
 # Deps
 if hash git 2>/dev/null; then
@@ -31,13 +38,16 @@ else
 fi
 
 # files
-link zshrc
-link dir_colors
-link tmux.conf
-link bashrc
-link vimrc 
-link gitignore
-link gitconfig
-link conkyrc
-link i3status.conf
-xdg_link liquidpromptrc
+link_config zshrc
+link_config dir_colors
+link_config tmux.conf
+link_config bashrc
+link_config vimrc 
+link_config gitignore
+link_config gitconfig
+link_config conkyrc
+link_config i3status.conf
+xdg_link_config liquidpromptrc
+
+bin_link nrk
+bin_link screenshot

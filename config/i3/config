@@ -161,10 +161,16 @@ bar {
         tray_output primary
 }
 
+# binds
+bindsym $mod+Print exec "shutter -f"
+bindsym Print exec "screen"
+bindsym Mod1+Shift+1 exec "screen"
+
+
 # launch commands
-exec --no-startup-id feh --bg-scale ~/ownCloud/Pictures/wallpaper/4kwp]~/ownCloud/Pictures/wallpaper/4kwp/0098-EiyTYXS.jpg
 exec xautolock -time 10 -locker '~/bin/fuzzy_lock' &
-exec --no-startup-id compton -b -e -i --backend glx --vsync opengl-swc
+exec --no-startup-id compton -b --backend glx
+exec --no-startup-id nitrogen --restore
 
 # class specifics
 for_window [class="peek"] floating enable
