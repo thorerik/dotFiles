@@ -163,8 +163,8 @@ bar {
 
 # binds
 bindsym $mod+Print exec "shutter -f"
-bindsym Print exec "screen"
-bindsym Mod1+Shift+1 exec "screen"
+bindsym Print exec "screenshot"
+bindsym Mod1+Shift+1 exec "screenshot"
 
 
 # launch commands
