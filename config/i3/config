@@ -30,8 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec /home/thor/bin/kitty
+bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec /home/thor/bin/kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -165,6 +165,10 @@ bar {
 bindsym $mod+Print exec "shutter -f"
 bindsym Print exec "screenshot"
 bindsym Mod1+Shift+1 exec "screenshot"
+# Audio
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
 
 
 # launch commands

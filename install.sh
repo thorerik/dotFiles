@@ -51,3 +51,4 @@ xdg_link_config liquidpromptrc
 
 link_bin nrk
 link_bin screenshot
+link_bin start_x
