@@ -47,6 +47,7 @@ link_config gitignore
 link_config gitconfig
 link_config conkyrc
 link_config i3status.conf
+link_config Xmodmap
 xdg_link_config liquidpromptrc
 
 link_bin nrk

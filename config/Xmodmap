@@ -1,0 +1,8 @@
+
+! Use Caps Lock button for compose key
+! https://unix.stackexchange.com/questions/108207/how-to-map-caps-lock-as-the-compose-key-using-xmodmap-portably-and-idempotently
+!keysym Caps_Lock = Multi_key Caps_Lock
+keycode 66 = Multi_key
+
+! Remove shift lock functionality
+clear Lock
