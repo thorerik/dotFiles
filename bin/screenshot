@@ -10,3 +10,5 @@ aws s3 cp $FILENAME s3://thor-image-uploads/ --acl=public-read
 rm $FILENAME
 
 echo -n "https://static.thorerik.com/$FILENAME" | xclip -selection c
+
+killall shutter # Kill any left over shutter processes

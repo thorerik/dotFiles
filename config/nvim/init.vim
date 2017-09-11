@@ -23,6 +23,9 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'jason0x43/vim-js-indent'
 Plug 'leafgarland/typescript-vim'
 
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+
 Plug 'altercation/vim-colors-solarized'
 
 " UltiSnips + Snippets
