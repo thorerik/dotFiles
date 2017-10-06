@@ -1,14 +1,18 @@
 #!/usr/bin/env sh
 
-DATE=`date +"%Y%m%d%H%M%S"`
+DATE=`date +"%H%M%S"`
+YEAR=$(date +"%Y")
+MONTH=$(date +"%m")
+DAY=$(date +"%d")
+
 
 FILENAME="$DATE.png"
 
 shutter -s -o $FILENAME -e
 
-aws s3 cp $FILENAME s3://thor-image-uploads/ --acl=public-read
+aws s3 cp $FILENAME s3://thor-image-uploads/s/$YEAR/$MONTH/$DAY/$FILENAME --acl=public-read
 rm $FILENAME
 
-echo -n "https://static.thorerik.com/$FILENAME" | xclip -selection c
+echo -n "https://static.thorerik.com/s/$YEAR/$MONTH/$DAY/$FILENAME" | xclip -selection c
 
 killall shutter # Kill any left over shutter processes
