@@ -1,94 +1,89 @@
-background no
-use_xft yes
-xftfont Sans:size=8
-xftalpha 1
-update_interval 1.0
-total_run_times 0
+conky.config = {
+	use_xft= true,
+	xftalpha= .1,
+	update_interval= 1,
+	total_run_times= 0,
 
-own_window_argb_visual true
-own_window_argb_value 0
-own_window_type desktop
-own_window yes
-own_window_transparent yes
-own_window_type normal
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+	background= false,
 
-double_buffer yes
-minimum_size 1400 250
-maximum_width 250
-#maximum_height 1070
-draw_shades yes
-draw_outline no
-draw_borders no
-draw_graph_borders yes
-default_color white
-default_shade_color black
-default_outline_color white
-alignment top_left
-gap_x 2570
-gap_y 5
-no_buffers yes
-uppercase no
-cpu_avg_samples 2
-override_utf8_locale no
+	own_window= true,
+	own_window_type= 'normal',
+	own_window_transparent= true,
+	own_window_hints= 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_colour= '000000',
+	own_window_argb_visual= true,
+	own_window_argb_value= 0,
 
-TEXT
-${color FF9900}${font sans-serif:bold:size=8:}SYSTEM ${hr 2}
-${color FFFF00}${font sans-serif:normal:size=8}$sysname $kernel $alignr $machine
-Host:$alignr$nodename
-Uptime:$alignr$uptime
-Load:$alignr$loadavg
-$loadgraph
+	double_buffer= true,
 
-${color FF9900}${font sans-serif:bold:size=8:}MPD ${hr 2}
-${color FFFF00}${font sans-serif:norma:size=8}${iconv_start UTF-8 ISO_8859-1}${if_empty $mpd_artist}${else}$mpd_artist - ${endif}${if_empty $mpd_title}${else}${if_match "${mpd_title}" == "EuroTruck Radio"}${exec ~/.conky/etrnp}${else}$mpd_title${endif}${endif}
-${if_match "${mpd_length}" == "0:00"}${if_match "${mpd_title}" == "EuroTruck Radio"}Euro Truck Radio${else}Stream${endif}${else}$mpd_bar
-$mpd_elapsed/$mpd_length${endif}${if_match "${mpd_title}" == "EuroTruck Radio"}
-${execi 60 ~/.conky/etrdj}${endif}${iconv_stop}
+	minimum_width= 270,
+	maximum_width= 270,
 
-${font sans-serif:bold:size=8}${color FF9900}PROCESSORS ${hr 2}${font sans-serif:normal:size=8}${color FFFF00}
-CPU0: ${cpu cpu0}% ${cpubar cpu0}
-CPU1: ${cpu cpu1}% ${cpubar cpu1}
-CPU2: ${cpu cpu2}% ${cpubar cpu2}
-CPU3: ${cpu cpu3}% ${cpubar cpu3}
-CPU4: ${cpu cpu4}% ${cpubar cpu4}
-CPU5: ${cpu cpu5}% ${cpubar cpu5}
-CPU6: ${cpu cpu6}% ${cpubar cpu6}
-CPU7: ${cpu cpu7}% ${cpubar cpu7}
-CPU8: ${cpu cpu8}% ${cpubar cpu8}
+	minimum_height= 10,
 
-${font sans-serif:bold:size=8}${color FF9900}MEMORY ${hr 2}
-${font sans-serif:normal:size=8}${color FFFF00}RAM $alignc $mem / $memmax $alignr $memperc%
-$membar
+	draw_shades= false,
+	draw_outline= false,
+	draw_borders= false,
+	draw_graph_borders= false,
+	
+	default_shade_color= '333333',
+	default_outline_color= 'black',
+	default_color = '#FFFFFF',
+	color1 = '#DDDDDD',
+	color2 = '#AAAAAA',
+	color3 = '#888888',
+	color4 = '#EF5A29',
 
-${font sans-serif:bold:size=8}${color FF9900}GPU ${hr 2}
-${font sans-serif:normal:size=8}${color FFFF00}TEMP $alignr${nvidia temp}${iconv_start UTF-8 ISO_8859-1}° ${iconv_stop}
-${font sans-serif:normal:size=8}${color FFFF00}GPU Freq $alignr${nvidia gpufreq}MHz
-${font sans-serif:normal:size=8}${color FFFF00}Mem Freq $alignr${nvidia memfreq}MHz
+	alignment= 'top_left',
+	gap_x= 50,
+	gap_y= 5,
+	no_buffers= true,
+	text_buffer_size = 2048,
+	uppercase= false,
+	cpu_avg_samples= 4,
+	net_avg_samples = 2,
+	temperature_unit = 'celsius',
+	override_utf8_locale= true,
 
-${font sans-serif:bold:size=8}${color FF9900}DISKS ${hr 2}
-${font sans-serif:normal:size=8}${color FFFF00}/ $alignc ${fs_used /} / ${fs_size /} $alignr${fs_used_perc /}%
-${fs_bar /}
-NAS $alignc ${fs_used /home/thor/shares} / ${fs_size /home/thor/shares} $alignr ${fs_used_perc /home/thor/shares}%
-${fs_bar /home/thor/shares}
-Slow $alignc ${fs_used /mnt/slow} / ${fs_size /mnt/slow} $alignr ${fs_used_perc /mnt/slow}%
-${fs_bar /mnt/slow}
+	font= 'Ubuntu:size=9',
 
-${font sans-serif:bold:size=8}${color FF9900}TOP PROCESSES ${hr 2}
-${font sans-serif:normal:size=8}${color FFFF00}${top_mem name 1}${alignr}${top mem 1} %
-${top_mem name 2}${alignr}${top mem 2} %
-$font${top_mem name 3}${alignr}${top mem 3} %
-$font${top_mem name 4}${alignr}${top mem 4} %
-$font${top_mem name 5}${alignr}${top mem 5} %
+	lua_load = '~/.conky/conky_orange.lua',
+	lua_draw_hook_post = 'main',
+}
 
-${font sans-serif:bold:size=8}${color FF9900}NETWORK ${hr 2}
-${font sans-serif:normal:size=8}${color FFFF00}intel: $alignr ${addr eno1}
-${font sans-serif:normal:size=8}${color FFFF00}vbox: $alignr ${addr vboxnet0}
+conky.text = [[
+	${voffset 112}
+	${goto 133}${color4}${font ubuntu:size=18}${time %e}
+	${goto 118}${color2}${voffset -6}${font ubuntu:size=9}${time %b}${voffset -1} ${color3}${font ubuntu:size=10}${time %Y}
+	${goto 133}${color1}${voffset -2}${font ubuntu:size=10}${time %a}
+	${font}
 
-$alignr Download
-${downspeedgraph eno1}
-${downspeed eno1}/s $alignr ${totaldown eno1}
+	${voffset 130}
+	${goto 110}${font Ubuntu:bold:size=7}${color}CPU %
+	${goto 110}${font Ubuntu:normal:size=7}${color1}${top name 1}${alignr}${top cpu 1}%
+	${goto 110}${font Ubuntu:normal:size=7}${color2}${top name 2}${alignr}${top cpu 2}%
+	${goto 110}${font Ubuntu:normal:size=7}${color3}${top name 3}${alignr}${top cpu 3}%
+	${goto 110}${font Ubuntu:normal:size=7}${color3}${top name 2}${alignr}${top cpu 4}%
+	${goto 110}${font Ubuntu:normal:size=7}${color3}${top name 3}${alignr}${top cpu 5}%
+	${goto 110}${voffset -4}${cpugraph 35,200 666666 666666}
 
-$alignr Upload
-${upspeedgraph eno1}
-${upspeed eno1}/s $alignr ${totalup eno1}
+	${voffset 8}
+	${goto 110}${font Ubuntu:bold:size=7}${color}MEM %
+	${goto 110}${font Ubuntu:normal:size=7}${color1}${top_mem name 1}${alignr}${top_mem mem 1}%
+	${goto 110}${font Ubuntu:normal:size=7}${color2}${top_mem name 2}${alignr}${top_mem mem 2}%
+	${goto 110}${font Ubuntu:normal:size=7}${color3}${top_mem name 3}${alignr}${top_mem mem 3}%
+	${goto 110}${font Ubuntu:normal:size=7}${color3}${top_mem name 2}${alignr}${top_mem mem 4}%
+	${goto 110}${font Ubuntu:normal:size=7}${color3}${top_mem name 3}${alignr}${top_mem mem 5}%
+
+	${voffset 12}
+	${goto 110}${font Ubuntu:bold:size=7}${color}DISKS % ${font Ubuntu:normal:size=7}${color3}free: ${color1}${fs_free /}
+
+	${voffset 20}${font}
+	${voffset 5}${goto 95}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-1 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 0' | cut -c17-19 | grep -Po '\d+'}${color3}°C${font}
+	${voffset 5}${goto 95}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-2 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 1' | cut -c17-19 | grep -Po '\d+'}${color3}°C${font}
+	${voffset 5}${goto 95}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-3 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 2' | cut -c17-19 | grep -Po '\d+'}${color3}°C${font}
+	${voffset 5}${goto 95}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-4 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 3' | cut -c17-19 | grep -Po '\d+'}${color3}°C${font}
+	${voffset 5}${goto 95}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}
+	${voffset 5}${goto 95}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}
+	${voffset 5}${goto 95}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}GPU temp: ${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${exec nvidia-smi -q -a | grep -Eo 'GPU Current Temp .+' | awk '{print $5}'}${color3}°C${font}
+]]
