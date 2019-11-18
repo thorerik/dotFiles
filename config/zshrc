@@ -13,8 +13,8 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/ssh-agent
   zgen oh-my-zsh plugins/composer
   zgen oh-my-zsh plugins/laravel5
-
-  zgen load nojhan/liquidprompt
+  
+  zgen oh-my-zsh themes/agnoster
 
   zgen load bobthecow/git-flow-completion
 
