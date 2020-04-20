@@ -10,22 +10,6 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 
-" Meow 
-Plug 'elixir-lang/vim-elixir'
-
-" Puppet
-Plug 'rodjek/vim-puppet'
-
-" Typescript
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Quramy/tsuquyomi'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'jason0x43/vim-js-indent'
-Plug 'leafgarland/typescript-vim'
-
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
-
 Plug 'altercation/vim-colors-solarized'
 
 " UltiSnips + Snippets
