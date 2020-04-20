@@ -5,26 +5,35 @@ if ! zgen saved; then
 
   zgen oh-my-zsh
 
+  # Dev
+  
+  # Git
   zgen oh-my-zsh plugins/git
+  zgen load bobthecow/git-flow-completion
+  # System
   zgen oh-my-zsh plugins/cp
   zgen oh-my-zsh plugins/history
-  zgen oh-my-zsh plugins/python
-  zgen oh-my-zsh plugins/ruby
+  zgen oh-my-zsh plugins/man
+  zgen oh-my-zsh plugins/sudo
   zgen oh-my-zsh plugins/ssh-agent
+  zgen oh-my-zsh plugins/ubuntu
+  # Docker
+  zgen oh-my-zsh plugins/docker
+  zgen oh-my-zsh plugins/docker-compose
+  # Python
+  zgen oh-my-zsh plugins/python
+  zgen oh-my-zsh plugins/pip
+  # PHP
   zgen oh-my-zsh plugins/composer
-  zgen oh-my-zsh plugins/laravel5
+  # Node
+  zgen oh-my-zsh plugins/nvm
+  # Terraform
+  zgen oh-my-zsh plugins/terraform
   
   zgen oh-my-zsh themes/agnoster
 
-  zgen load bobthecow/git-flow-completion
-
   zgen load chrissicool/zsh-256color
   zgen load joel-porquet/zsh-dircolors-solarized
-  zgen load rimraf/k
-
-  # Have to be last
-  zgen load willghatch/zsh-cdr
-  zgen load zsh-users/zaw
 
   zgen save
 fi
@@ -39,7 +48,3 @@ fi
 if [[ -e ~/.zsh_local ]]; then
     source ~/.zsh_local
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
