@@ -18,23 +18,33 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/ssh-agent
   zgen oh-my-zsh plugins/ubuntu
   zgen oh-my-zsh plugins/wd
-  # Docker
-  zgen oh-my-zsh plugins/docker
-  zgen oh-my-zsh plugins/docker-compose
   # Python
   zgen oh-my-zsh plugins/python
   zgen oh-my-zsh plugins/pip
-  # PHP
-  zgen oh-my-zsh plugins/composer
   # Node
   zgen oh-my-zsh plugins/nvm
-  # Terraform
-  zgen oh-my-zsh plugins/terraform
   
   zgen oh-my-zsh themes/agnoster
 
   zgen load chrissicool/zsh-256color
   zgen load joel-porquet/zsh-dircolors-solarized
+
+  if command -v terraform 2>/dev/null >&2; then
+    # Terraform
+    zgen oh-my-zsh plugins/terraform
+  fi
+  if command -v php 2>/dev/null >&2; then
+    # PHP
+    zgen oh-my-zsh plugins/composer
+  fi
+  if command -v step 2>/dev/null >&2; then
+    #zgen load smallstep/cli autocomplete/zsh_autocomplete
+  fi
+  if command -v docker 2>/dev/null >&2; then
+    # Docker
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/docker-compose
+  fi
 
   zgen save
 fi
@@ -46,6 +56,10 @@ else
     export EDITOR="vim"
 fi
 
+export PATH="/home/thor/bin:$PATH"
+
 if [[ -e ~/.zsh_local ]]; then
     source ~/.zsh_local
+else
+    echo "# Local environment specific alterations" >> ~/.zsh_local
 fi
