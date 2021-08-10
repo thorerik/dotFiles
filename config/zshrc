@@ -45,6 +45,9 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/docker-compose
   fi
+  if command -v kubectl 2>/dev/null >&2; then
+    zgen oh-my-zsh plugins/kubectl
+  fi
 
   zgen save
 fi
