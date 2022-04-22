@@ -1,7 +1,7 @@
 [user]
 	email = thor@thorerik.com
 	name = Thor Erik Lie
-	signingkey = C2175DAB
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOepfE+K3k2CBMgnlp8Z7bFZhGxkXNUTwmS4Zsp00qmi
 [push]
 	default = simple
 [core]
@@ -34,3 +34,10 @@
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 [commit]
 	gpgsign = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[gpg]
+#	format = ssh
