@@ -38,6 +38,7 @@ else
 fi
 
 # files
+link_config allowed_signers
 link_config zshrc
 link_config dir_colors
 link_config tmux.conf

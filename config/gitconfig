@@ -1,7 +1,7 @@
 [user]
 	email = thor@thorerik.com
 	name = Thor Erik Lie
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOepfE+K3k2CBMgnlp8Z7bFZhGxkXNUTwmS4Zsp00qmi
+	signingkey = ~/.ssh/signingkey
 [push]
 	default = simple
 [core]
@@ -33,11 +33,13 @@
 [alias]
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 [commit]
-	gpgsign = false
+	gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [gpg]
-#	format = ssh
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.allowed_signers
