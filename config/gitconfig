@@ -4,6 +4,9 @@
 	signingkey = ~/.ssh/signingkey
 [push]
 	default = simple
+[pull]
+	rebase = true
+
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
@@ -32,16 +35,21 @@
 	untracked = cyan
 [alias]
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
-[commit]
-	gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+	gpgsign = true
 [gpg]
 	format = ssh
 [gpg "ssh"]
 	allowedSignersFile = ~/.allowed_signers
-[pull]
-	rebase = true
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+  insteadOf = https://bitbucket.org/
