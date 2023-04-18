@@ -14,8 +14,8 @@ function xdg_link_config()
 
 function link_bin()
 {
-   [ ! -e ~/bin ] && mkdir ~/bin
-   ln -sf "${PWD}/bin/$1" "$HOME/bin/$1"
+    [ ! -e ~/bin ] && mkdir ~/bin
+    ln -sf "${PWD}/bin/$1" "$HOME/bin/$1"
 }
 
 # Directories
@@ -46,11 +46,13 @@ link_config bashrc
 link_config vimrc
 link_config gitignore
 link_config gitconfig
-link_config conkyrc
-link_config i3status.conf
 link_config Xmodmap
-xdg_link_config liquidpromptrc
 
-link_bin nrk
-link_bin screenshot
-link_bin start_x
+
+echo "#####################"
+echo "##   Add GPG key   ##"
+echo "#####################"
+echo "gpg --full-generate-key"
+echo "gpg --import gpg/github.gpg"
+echo "gpg --expert --edit-key 5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23 trust"
+echo "gpg --expert --edit-key 5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23 sign"
