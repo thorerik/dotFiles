@@ -2,11 +2,23 @@
 	email = thor@thorerik.com
 	name = Thor Erik Lie
 	signingkey = ~/.ssh/signingkey
+
+[alias]
+    lol = log --pretty=oneline --abbrev-commit --graph --decorate
+    ad  = add -p
+    cm  = commit -v
+    st  = status --branch
+[init]
+	defaultBranch = main
+[rebase]
+	autostash = true
 [push]
 	default = simple
 [pull]
 	rebase = true
-
+	autostash = true
+[commit]
+    gpgsign = true
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
@@ -33,26 +45,12 @@
 	added = yellow
 	changed = green
 	untracked = cyan
-[alias]
-	lol = log --pretty=oneline --abbrev-commit --graph --decorate
-    ad  = add -p
-    cm  = commit -v
-    st  = status --branch
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[commit]
-	gpgsign = true
 [gpg]
 	format = ssh
 [gpg "ssh"]
 	allowedSignersFile = ~/.allowed_signers
-[pull]
-	rebase = true
-	autostash = true
-[init]
-	defaultBranch = main
-[rebase]
-	autostash = true
