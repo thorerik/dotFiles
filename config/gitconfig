@@ -35,6 +35,9 @@
 	untracked = cyan
 [alias]
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+    ad  = add -p
+    cm  = commit -v
+    st  = status --branch
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
