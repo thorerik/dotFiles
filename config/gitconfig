@@ -4,7 +4,8 @@
 	signingkey = ~/.ssh/signingkey
 
 [alias]
-    lol = log --pretty=oneline --abbrev-commit --graph --decorate
+    lol = log --oneline --abbrev-commit --graph --decorate --pretty=shortlog
+    lg  = log -n 12 --graph --pretty=shortlog
     ad  = add -p
     cm  = commit -v
     st  = status --branch
@@ -54,3 +55,7 @@
 	format = ssh
 [gpg "ssh"]
 	allowedSignersFile = ~/.allowed_signers
+[format]
+    pretty = shortlog
+[pretty]
+    shortlog = tformat:%C(red)%h%Creset -%C(bold cyan)%d%Creset%C(bold blue) <%aN>%Creset %s %C(dim green)(%cr)%Creset
