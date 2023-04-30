@@ -93,8 +93,8 @@ function gsync() {
 }
 
 # Set prompt color according to system type
-if [ "$(uname)" = "Linux" ]; then;
-    if type systemd-detect-virt > /dev/null 2>&1; then;
+if [ "$(uname)" = "Linux" ]; then
+    if type systemd-detect-virt > /dev/null 2>&1; then
         case "$(systemd-detect-virt)" in
             none*)      crit=phy;;
             kvm*)       crit=vm;;
