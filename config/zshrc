@@ -91,3 +91,32 @@ function gsync() {
  git pull upstream "$1" && \
  git push origin "$1"
 }
+
+# Set prompt color according to system type
+if [ "$(uname)" = "Linux" ]; then;
+    if type systemd-detect-virt > /dev/null 2>&1; then;
+        case "$(systemd-detect-virt)" in
+            none*)      crit=phy;;
+            kvm*)       crit=vm;;
+            oracle*)    crit=no;;
+        esac
+
+        if [ "$crit" = "no" ]; then
+            prompt_dir() {
+                prompt_segment green $CURRENT_FG '%~'
+            }
+        elif [ "$crit" = "phy" ]; then
+            prompt_dir() {
+                prompt_segment red $CURRENT_FG '%~'
+            }
+        elif [ "$crit" = "vm" ]; then
+            prompt_dir() {
+                prompt_segment yellow $CURRENT_FG '%~'
+            }
+        else
+            prompt_dir() {
+                prompt_segment blue $CURRENT_FG '%~'
+            }
+        fi
+    fi
+fi
