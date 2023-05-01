@@ -119,4 +119,8 @@ if [ "$(uname)" = "Linux" ]; then
             }
         fi
     fi
+elif [ "$(uname)" = "Darwin" ]; then
+    prompt_dir() {
+        prompt_segment magenta $CURRENT_FG '%~'
+    }
 fi
