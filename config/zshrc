@@ -38,7 +38,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/composer
   fi
   if command -v step 2>/dev/null >&2; then
-    #zgen load smallstep/cli autocomplete/zsh_autocomplete
+    zgen load smallstep/cli autocomplete/zsh_autocomplete
   fi
   if command -v docker 2>/dev/null >&2; then
     # Docker
