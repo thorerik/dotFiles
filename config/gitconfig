@@ -11,6 +11,7 @@
     ad      = add -p
     cm      = commit -v
     st      = status --branch
+    nb      = checkout -b
 [init]
 	defaultBranch = main
 [rebase]
