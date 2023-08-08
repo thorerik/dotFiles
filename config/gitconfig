@@ -59,3 +59,7 @@
     pretty = shortlog
 [pretty]
     shortlog = tformat:%C(red)%h%Creset -%C(bold cyan)%d%Creset%C(bold blue) <%aN>%Creset %s %C(dim green)(%cr)%Creset
+
+
+[includeIf "gitdir:~/src/work/"]
+    path = ~/.gitwork
