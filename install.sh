@@ -25,6 +25,7 @@ function link_bin()
 [ ! -e ~/.config/i3 ] && xdg_link_config i3
 [ ! -e ~/.config/yabai ] && xdg_link_config yabai
 [ ! -e ~/.config/sketchybar ] && xdg_link_config sketchybar
+[ ! -e ~/.config/kitty ] && xdg_link_config kitty
 
 # Deps
 if hash git 2>/dev/null; then
