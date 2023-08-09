@@ -19,12 +19,7 @@ function link_bin()
 }
 
 # Directories
-[ ! -e ~/.conky/ ] && link_config conky
-[ ! -e ~/.ncmpcpp/ ] && link_config ncmpcpp
 [ ! -e ~/.config/nvim ] && xdg_link_config nvim
-[ ! -e ~/.config/i3 ] && xdg_link_config i3
-[ ! -e ~/.config/yabai ] && xdg_link_config yabai
-[ ! -e ~/.config/sketchybar ] && xdg_link_config sketchybar
 [ ! -e ~/.config/kitty ] && xdg_link_config kitty
 
 # Deps
@@ -35,11 +30,6 @@ if hash git 2>/dev/null; then
     else
         # install Zgen
         git clone https://github.com/tarjoilija/zgen.git ~/.zgen
-    fi
-
-    if [ ! -d ./sketchybar/plugins/Dynamic-Island-Sketchybar ]; then
-        # install Dynamic Island
-        git clone https://github.com/crissNb/Dynamic-Island-Sketchybar.git ~/.config/sketchybar/plugins/Dynamic-Island-Sketchybar
     fi
 else
     echo >&2 "Git is not installed, zgen and Dynamic Island not installed."
