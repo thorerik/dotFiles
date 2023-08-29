@@ -7,7 +7,7 @@
     lol     = log --oneline --abbrev-commit --graph --decorate --pretty=shortlog
     lols    = log --oneline --abbrev-commit --graph --decorate --pretty=shortlog --show-signature
     lg      = log -n 12 --graph --pretty=shortlog
-    lg      = log -n 12 --graph --pretty=shortlog --show-signature
+    lgs     = log -n 12 --graph --pretty=shortlog --show-signature
     ad      = add -p
     cm      = commit -v
     st      = status --branch
