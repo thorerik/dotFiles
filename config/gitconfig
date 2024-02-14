@@ -63,3 +63,5 @@
 
 [includeIf "gitdir:~/src/work/**"]
     path = ~/.gitwork
+[gitbutler]
+	utmostDiscretion = 1

@@ -27,7 +27,7 @@ if ! zgen saved; then
   zgen oh-my-zsh themes/agnoster
 
   zgen load chrissicool/zsh-256color
-  zgen load joel-porquet/zsh-dircolors-solarized
+  #zgen load joel-porquet/zsh-dircolors-solarized
 
   if command -v rust 2>/dev/null >&2; then
     # Rust
@@ -57,6 +57,10 @@ if ! zgen saved; then
 
   if command -v brew 2>/dev/null >&2; then
     zgen oh-my-zsh plugins/brew
+  fi
+
+  if command -v ansible-playbook 2>/dev/null >&2; then
+      zgen oh-my-zsh plugins/ansible
   fi
 
   zgen save
