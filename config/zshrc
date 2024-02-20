@@ -132,3 +132,5 @@ elif [ "$(uname)" = "Darwin" ]; then
         prompt_segment magenta $CURRENT_FG '%~'
     }
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
