@@ -62,77 +62,77 @@ if ! zgen saved; then
   fi
 
   if command -v ansible-playbook 2>/dev/null >&2; then
-      zgen oh-my-zsh plugins/ansible
+    zgen oh-my-zsh plugins/ansible
   fi
 
   zgen save
 fi
 
 if command -v nvim 2>/dev/null >&2; then
-    alias vim="nvim"
-    export EDITOR="nvim"
+  alias vim="nvim"
+  export EDITOR="nvim"
 else
-    export EDITOR="vim"
+  export EDITOR="vim"
 fi
 
 export PATH="/home/thor/bin:$PATH"
 
 if [[ -e ~/.zsh_local ]]; then
-    source ~/.zsh_local
+  source ~/.zsh_local
 else
-    echo "# Local environment specific alterations" >> ~/.zsh_local
+  echo "# Local environment specific alterations" >> ~/.zsh_local
 fi
 
 # Git upstream branch syncer.
 # Usage: gsync master (checks out master, pull upstream, push origin).
 function gsync() {
- if [[ ! "$1" ]] ; then
-     echo "You must supply a branch."
-     return 0
- fi
+  if [[ ! "$1" ]] ; then
+    echo "You must supply a branch."
+    return 0
+  fi
 
- BRANCHES=$(git branch --list $1)
- if [ ! "$BRANCHES" ] ; then
+  BRANCHES=$(git branch --list $1)
+  if [ ! "$BRANCHES" ] ; then
     echo "Branch $1 does not exist."
     return 0
- fi
+  fi
 
- git checkout "$1" && \
- git pull upstream "$1" && \
- git push origin "$1"
+  git checkout "$1" && \
+  git pull upstream "$1" && \
+  git push origin "$1"
 }
 
 # Set prompt color according to system type
 if [ "$(uname)" = "Linux" ]; then
-    if type systemd-detect-virt > /dev/null 2>&1; then
-        case "$(systemd-detect-virt)" in
-            none*)      crit=phy;;
-            kvm*)       crit=vm;;
-            oracle*)    crit=no;;
-        esac
+  if type systemd-detect-virt > /dev/null 2>&1; then
+    case "$(systemd-detect-virt)" in
+      none*)      crit=phy;;
+      kvm*)       crit=vm;;
+      oracle*)    crit=no;;
+    esac
 
-        if [ "$crit" = "no" ]; then
-            prompt_dir() {
-                prompt_segment green $CURRENT_FG '%~'
-            }
-        elif [ "$crit" = "phy" ]; then
-            prompt_dir() {
-                prompt_segment red $CURRENT_FG '%~'
-            }
-        elif [ "$crit" = "vm" ]; then
-            prompt_dir() {
-                prompt_segment yellow $CURRENT_FG '%~'
-            }
-        else
-            prompt_dir() {
-                prompt_segment blue $CURRENT_FG '%~'
-            }
-        fi
+    if [ "$crit" = "no" ]; then
+      prompt_dir() {
+          prompt_segment green $CURRENT_FG '%~'
+      }
+    elif [ "$crit" = "phy" ]; then
+      prompt_dir() {
+          prompt_segment red $CURRENT_FG '%~'
+      }
+    elif [ "$crit" = "vm" ]; then
+      prompt_dir() {
+          prompt_segment yellow $CURRENT_FG '%~'
+      }
+    else
+      prompt_dir() {
+          prompt_segment blue $CURRENT_FG '%~'
+      }
     fi
+  fi
 elif [ "$(uname)" = "Darwin" ]; then
-    prompt_dir() {
-        prompt_segment magenta $CURRENT_FG '%~'
-    }
+  prompt_dir() {
+    prompt_segment magenta $CURRENT_FG '%~'
+  }
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

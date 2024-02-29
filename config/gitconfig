@@ -4,14 +4,14 @@
 	signingkey = ~/.ssh/signingkey
 
 [alias]
-    lol     = log --oneline --abbrev-commit --graph --decorate --pretty=shortlog
-    lols    = log --oneline --abbrev-commit --graph --decorate --pretty=shortlog --show-signature
-    lg      = log -n 12 --graph --pretty=shortlog
-    lgs     = log -n 12 --graph --pretty=shortlog --show-signature
-    ad      = add -p
-    cm      = commit -v
-    st      = status --branch
-    nb      = checkout -b
+  lol     = log --oneline --abbrev-commit --graph --decorate --pretty=shortlog
+  lols    = log --oneline --abbrev-commit --graph --decorate --pretty=shortlog --show-signature
+  lg      = log -n 12 --graph --pretty=shortlog
+  lgs     = log -n 12 --graph --pretty=shortlog --show-signature
+  ad      = add -p
+  cm      = commit -v
+  st      = status --branch
+  nb      = checkout -b
 [init]
 	defaultBranch = main
 [rebase]
@@ -22,7 +22,7 @@
 	rebase = true
 	autostash = true
 [commit]
-    gpgsign = true
+  gpgsign = true
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
@@ -56,12 +56,12 @@
 [gpg "ssh"]
 	allowedSignersFile = ~/.allowed_signers
 [format]
-    pretty = shortlog
+  pretty = shortlog
 [pretty]
-    shortlog = tformat:%C(red)%h%Creset -%C(bold cyan)%d%Creset%C(bold blue) <%aN>%Creset %s %C(dim green)(%cr)%Creset
+  shortlog = tformat:%C(red)%h%Creset -%C(bold cyan)%d%Creset%C(bold blue) <%aN>%Creset %s %C(dim green)(%cr)%Creset
 
 
 [includeIf "gitdir:~/src/work/**"]
-    path = ~/.gitwork
+  path = ~/.gitwork
 [gitbutler]
 	utmostDiscretion = 1

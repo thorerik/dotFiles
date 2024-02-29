@@ -15,7 +15,7 @@ highlight Normal guibg=Black guifg=White
 " ---- per host configuration ----
 let s:per_host_configuration = expand("~/.vim/settings")
 if filereadable(s:per_host_configuration)
-   execute ":source " . s:per_host_configuration
+  execute ":source " . s:per_host_configuration
 endif
 
 " System dependent options
@@ -28,9 +28,9 @@ set printoptions+=syntax:y                      " Use syntax hilighting when pri
 " Terminal: we know xterm is a color terminal.
 " This is from Debian GNU/Linux global vimrc
 if &term =~ "xterm"
-    set t_Co=16
-    set t_Sf=[3%dm
-    set t_Sb=[4%dm
+  set t_Co=16
+  set t_Sf=[3%dm
+  set t_Sb=[4%dm
 endif
 
 """ Plugin stuff
@@ -60,7 +60,7 @@ set gdefault                    " Use g flag by default in substitutes
 set wildmenu                    " Wild menu!
 set wildmode=longest,full       " First match only to the longest common string, then use full/wildmenu match
 set laststatus=2                " Always show status bar
-set listchars=tab:»\ ,trail:·,extends:>,precedes:<  " Use sensible list chars
+set listchars=tab:ï¿½\ ,trail:ï¿½,extends:>,precedes:<  " Use sensible list chars
 set foldopen+=jump              " Add jump to fold open list
 set noea                        " Do not equalize windows
 set previewheight=7             " Preview window height
@@ -156,13 +156,13 @@ map <F7> :call <SID>ToggleFolding()<CR>
 imap <F7> <c-o>:call <SID>ToggleFolding()<CR>
 
 function <SID>ToggleFolding()
-    if &foldcolumn == 0
-        setlocal foldenable
-        setlocal foldcolumn=8
-    else
-        setlocal nofoldenable
-        setlocal foldcolumn=0
-    endif
+  if &foldcolumn == 0
+    setlocal foldenable
+    setlocal foldcolumn=8
+  else
+    setlocal nofoldenable
+    setlocal foldcolumn=0
+  endif
 endfunction
 
 " This autocomments the curly brackets when you type }//
@@ -170,41 +170,41 @@ imap <Leader>} <c-o>:call <SID>CurlyBracket()<CR><c-o>a
 map <Leader>} :call <SID>CurlyBracket()<CR>
 
 function <SID>CurlyBracket()
-    let l:line_num = line(".")
-    let l:is_match = searchpair('{', '', '}', 'bW')
-    if (l:is_match > 0)
-        let l:comment_string = substitute(getline("."), '^\s*\(.\{-}\)\s*{', '\1', "")
-        sil exe ":" . l:line_num
-        sil exe "normal a // " . l:comment_string
-    endif
+  let l:line_num = line(".")
+  let l:is_match = searchpair('{', '', '}', 'bW')
+  if (l:is_match > 0)
+    let l:comment_string = substitute(getline("."), '^\s*\(.\{-}\)\s*{', '\1', "")
+    sil exe ":" . l:line_num
+    sil exe "normal a // " . l:comment_string
+  endif
 endfunction
 
 " Mark with restoring screen position (by Benji Fisher)
 function s:Mark(...)
-    if a:0 == 0
-        let l:mark = line(".") . "G" . virtcol(".") . "|"
-        normal! H
-        let l:mark = "normal!" . line(".") . "Gzt" . l:mark
-        execute l:mark
-        return l:mark
-    elseif a:0 == 1
-        return "normal!" . a:1 . "G1|"
-    else
-        return "normal!" . a:1 . "G" . a:2 . "|"
-    endif
+  if a:0 == 0
+    let l:mark = line(".") . "G" . virtcol(".") . "|"
+    normal! H
+    let l:mark = "normal!" . line(".") . "Gzt" . l:mark
+    execute l:mark
+    return l:mark
+  elseif a:0 == 1
+    return "normal!" . a:1 . "G1|"
+  else
+    return "normal!" . a:1 . "G" . a:2 . "|"
+  endif
 endfun
 
 " Remove trailing blanks but preserve sigdash lines
 " Also preserve the trailing spaces in the current line
 " Uses the Mark function above
 function s:RemoveTrailingBlanks()
-    let l:m = s:Mark()
-    " Double backslashes required because the expression is evaluated
-    " before it's executed
-    silent! execute "1,.-1s/\\(^-- $\\)\\|\\(\\s\\+$\\)/\\1/"
-    execute l:m
-    silent! execute ".+1,$s/\\(^-- $\\)\\|\\(\\s\\+$\\)/\\1/"
-    execute l:m
+  let l:m = s:Mark()
+  " Double backslashes required because the expression is evaluated
+  " before it's executed
+  silent! execute "1,.-1s/\\(^-- $\\)\\|\\(\\s\\+$\\)/\\1/"
+  execute l:m
+  silent! execute ".+1,$s/\\(^-- $\\)\\|\\(\\s\\+$\\)/\\1/"
+  execute l:m
 endfunction
 
 " Deletes current buffer without closing the window
@@ -213,75 +213,75 @@ command Bdelete call s:BufcloseCloseIt()
 command BDelete call s:BufcloseCloseIt()
 
 function s:BufcloseCloseIt()
-    let l:currentBufNum = bufnr("%")
-    let l:alternateBufNum = bufnr("#")
+  let l:currentBufNum = bufnr("%")
+  let l:alternateBufNum = bufnr("#")
 
-    if buflisted(l:alternateBufNum)
-        buffer #
-    else
-        bnext
-    endif
+  if buflisted(l:alternateBufNum)
+    buffer #
+  else
+    bnext
+  endif
 
-    if bufnr("%") == l:currentBufNum
-        new
-    endif
+  if bufnr("%") == l:currentBufNum
+    new
+  endif
 
-    if buflisted(l:currentBufNum)
-        execute("bdelete ".l:currentBufNum)
-    endif
+  if buflisted(l:currentBufNum)
+    execute("bdelete ".l:currentBufNum)
+  endif
 endfunction
 
 " Sets simple syntax folding regions
 function s:SetSyntaxFolding()
 
-    setlocal foldmethod=syntax
+  setlocal foldmethod=syntax
 
-    " Folding syntax regions
-    syn region  ketkuCurlyFold
-                    \ start="{"
-                    \ end="}"
-                \ transparent fold
+  " Folding syntax regions
+  syn region  ketkuCurlyFold
+                  \ start="{"
+                  \ end="}"
+              \ transparent fold
 
-    syn region  ketkuPreprocFold
-                    \ start="#if$"
-                    \ start="#if .*$"
-                    \ start="#ifdef$"
-                    \ start="#ifdef .*$"
-                    \ start="#ifndef$"
-                    \ start="#ifndef .*$"
-                    \ end="#endif"
-                \ transparent fold
+  syn region  ketkuPreprocFold
+                  \ start="#if$"
+                  \ start="#if .*$"
+                  \ start="#ifdef$"
+                  \ start="#ifdef .*$"
+                  \ start="#ifndef$"
+                  \ start="#ifndef .*$"
+                  \ end="#endif"
+              \ transparent fold
 endfunction
 
 " Sets fancy quickfix stuff for LaTeX errors
 function s:SetLaTeXMake()
-    setlocal efm=%E!\ LaTeX\ %trror:\ %m,
-        \%E!\ %m,
-        \%+WLaTeX\ %.%#Warning:\ %.%#line\ %l%.%#,
-        \%+W%.%#\ at\ lines\ %l--%*\\d,
-        \%WLaTeX\ %.%#Warning:\ %m,
-        \%Cl.%l\ %m,
-        \%+C\ \ %m.,
-        \%+C%.%#-%.%#,
-        \%+C%.%#[]%.%#,
-        \%+C[]%.%#,
-        \%+C%.%#%[{}\\]%.%#,
-        \%+C<%.%#>%.%#,
-        \%C\ \ %m,
-        \%-GSee\ the\ LaTeX%m,
-        \%-GType\ \ H\ <return>%m,
-        \%-G\ ...%.%#,
-        \%-G%.%#\ (C)\ %.%#,
-        \%-G(see\ the\ transcript%.%#),
-        \%-G\\s%#,
-        \%+O(%f)%r,
-        \%+P(%f%r,
-        \%+P\ %\\=(%f%r,
-        \%+P%*[^()](%f%r,
-        \%+P[%\\d%[^()]%#(%f%r,
-        \%+Q)%r,
-        \%+Q%*[^()])%r,
-        \%+Q[%\\d%*[^()])%r
+  setlocal efm=%E!\ LaTeX\ %trror:\ %m,
+      \%E!\ %m,
+      \%+WLaTeX\ %.%#Warning:\ %.%#line\ %l%.%#,
+      \%+W%.%#\ at\ lines\ %l--%*\\d,
+      \%WLaTeX\ %.%#Warning:\ %m,
+      \%Cl.%l\ %m,
+      \%+C\ \ %m.,
+      \%+C%.%#-%.%#,
+      \%+C%.%#[]%.%#,
+      \%+C[]%.%#,
+      \%+C%.%#%[{}\\]%.%#,
+      \%+C<%.%#>%.%#,
+      \%C\ \ %m,
+      \%-GSee\ the\ LaTeX%m,
+      \%-GType\ \ H\ <return>%m,
+      \%-G\ ...%.%#,
+      \%-G%.%#\ (C)\ %.%#,
+      \%-G(see\ the\ transcript%.%#),
+      \%-G\\s%#,
+      \%+O(%f)%r,
+      \%+P(%f%r,
+      \%+P\ %\\=(%f%r,
+      \%+P%*[^()](%f%r,
+      \%+P[%\\d%[^()]%#(%f%r,
+      \%+Q)%r,
+      \%+Q%*[^()])%r,
+      \%+Q[%\\d%*[^()])%r
 endfunction
 
 " Smooth scrolling
@@ -291,31 +291,31 @@ map <C-B> :call ScrollUp(0)<CR>
 map <C-F> :call ScrollDown(0)<CR>
 
 function ScrollUp(isHalf)
-    if a:isHalf
-        let l:lines = &scroll
-    else
-        let l:lines = &lines - 4
-    endif
+  if a:isHalf
+    let l:lines = &scroll
+  else
+    let l:lines = &lines - 4
+  endif
 
-    while l:lines > 0
-        execute "normal \<C-Y>"
-        redraw
-        let l:lines =  l:lines - 1
-    endwhile
+  while l:lines > 0
+    execute "normal \<C-Y>"
+    redraw
+    let l:lines =  l:lines - 1
+  endwhile
 endfunction
 
 function ScrollDown(isHalf)
-    if a:isHalf
-        let l:lines = &scroll
-    else
-        let l:lines = &lines - 4
-    endif
+  if a:isHalf
+    let l:lines = &scroll
+  else
+    let l:lines = &lines - 4
+  endif
 
-    while l:lines > 0
-        execute "normal \<C-E>"
-        redraw
-        let l:lines =  l:lines - 1
-    endwhile
+  while l:lines > 0
+    execute "normal \<C-E>"
+    redraw
+    let l:lines =  l:lines - 1
+  endwhile
 endfunction
 
 
@@ -380,26 +380,26 @@ ia #F: # FIXME:
 """ Autocommands (these are not very portable, but rather customized)
 
 if has("autocmd")
-    " Set some sensible defaults for editing source files
-    augroup ketku
-        au!
-        " Remove trailing blanks when writing buffer
-        "autocmd BufWritePre         *                               call s:RemoveTrailingBlanks()
+  " Set some sensible defaults for editing source files
+  augroup ketku
+    au!
+    " Remove trailing blanks when writing buffer
+    "autocmd BufWritePre         *                               call s:RemoveTrailingBlanks()
 
-        " Mark overlong lines (the color is optimixed for darkslategray)
-        autocmd BufEnter            *                               hi rightMargin guibg=slategray | match rightMargin /\%79v/
+    " Mark overlong lines (the color is optimixed for darkslategray)
+    autocmd BufEnter            *                               hi rightMargin guibg=slategray | match rightMargin /\%79v/
 
-        " Programming language stuff
-        autocmd BufReadPost,BufNew  *.java                          setlocal comments=sl:/*,mb:*,elx:*/,:// makeprg=ant\ -emacs
-        autocmd BufReadPost,BufNew  *.xml                           setlocal makeprg=ant\ -emacs
-        "autocmd BufReadPost,BufNew  *.py,*.java,*.c,*.cpp,*.cc,*.h,*.xml setlocal sts=3 sw=3 et
-        autocmd BufReadPost,BufNew  *.tex                           call s:SetLaTeXMake()
-        au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+    " Programming language stuff
+    autocmd BufReadPost,BufNew  *.java                          setlocal comments=sl:/*,mb:*,elx:*/,:// makeprg=ant\ -emacs
+    autocmd BufReadPost,BufNew  *.xml                           setlocal makeprg=ant\ -emacs
+    "autocmd BufReadPost,BufNew  *.py,*.java,*.c,*.cpp,*.cc,*.h,*.xml setlocal sts=3 sw=3 et
+    autocmd BufReadPost,BufNew  *.tex                           call s:SetLaTeXMake()
+    au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-        " Use syntax folding w/these languages.
-        " autocmd Syntax              java,c,cpp,xml                  call s:SetSyntaxFolding()
-        autocmd BufEnter            \[Tag List\]                    setlocal foldmethod=manual
-    augroup END
+    " Use syntax folding w/these languages.
+    " autocmd Syntax              java,c,cpp,xml                  call s:SetSyntaxFolding()
+    autocmd BufEnter            \[Tag List\]                    setlocal foldmethod=manual
+  augroup END
 endif " has ("autocmd")
 
 
