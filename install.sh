@@ -1,21 +1,21 @@
 #!/usr/bin/env sh
 
-function link_config()
+link_config()
 {
-    ln -sf "${PWD}/config/$1" "$HOME/.$1"
+    ln -sf "${PWD}/config/$1" "${HOME}/.$1"
 }
 
-function xdg_link_config()
+xdg_link_config()
 {
     [ ! -e ~/.config ] && mkdir ~/.config
 
-    ln -sf "${PWD}/config/$1" "$HOME/.config/$1"
+    ln -sf "${PWD}/config/$1" "${HOME}/.config/$1"
 }
 
-function link_bin()
+link_bin()
 {
     [ ! -e ~/bin ] && mkdir ~/bin
-    ln -sf "${PWD}/bin/$1" "$HOME/bin/$1"
+    ln -sf "${PWD}/bin/$1" "${HOME}/bin/$1"
 }
 
 # Directories
