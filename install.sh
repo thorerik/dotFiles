@@ -46,6 +46,19 @@ link_config gitignore
 link_config gitconfig
 link_config Xmodmap
 
+# bins
+link_bin auth
+
+# If ~/.zsh_local exists, check if the contents of partials/become.zsh are present
+if [ -e ~/.zsh_local ]; then
+    if ! grep -q "Begin become" ~/.zsh_local; then
+        echo "Appending become functions to ~/.zsh_local"
+        cat partials/become.zsh >> ~/.zsh_local
+    fi
+else
+    echo "Creating ~/.zsh_local"
+    cp partials/become.zsh ~/.zsh_local
+fi
 
 echo "#####################"
 echo "##   Add GPG key   ##"
