@@ -75,7 +75,7 @@ else
   export EDITOR="vim"
 fi
 
-export PATH="/home/thor/bin:$PATH"
+export PATH="${HOME}/bin:${PATH}"
 
 if [[ -e ~/.zsh_local ]]; then
   source ~/.zsh_local
