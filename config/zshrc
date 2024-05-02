@@ -30,7 +30,10 @@ if ! zgen saved; then
 
   zgen load chrissicool/zsh-256color
   #zgen load joel-porquet/zsh-dircolors-solarized
-
+  
+  if command -v zellij 2>/dev/null >&2; then
+    zgen load thorerik/dotfiles config/zsh-plugins/_zellij
+  fi
   if command -v rust 2>/dev/null >&2; then
     # Rust
     zgen oh-my-zsh plugins/rust
