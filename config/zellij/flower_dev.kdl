@@ -1,0 +1,57 @@
+layout {
+
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+
+    tab_template name="strider_tab" {
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+        pane split_direction="vertical" {
+            pane size="15%" {
+                plugin location="zellij:strider"
+            }
+            children
+        }
+        pane size=2 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+
+    pane_template name="dev_pane" {
+        pane split_direction="vertical" {
+            children
+        }
+    }
+
+    strider_tab name="Web" cwd="/Users/thor/src/personal/flower/flower_web" focus=true {
+        pane split_direction="vertical" {
+            pane name="bun" {
+              command "bun"
+              args "dev"
+            }
+            pane name="term" focus=true
+        }
+    }
+
+    strider_tab name="RS" cwd="/Users/thor/src/personal/flower/flower_rs" {
+        pane split_direction="vertical" {
+            pane name="cargo"
+            pane name="term"
+        }
+    }
+
+    strider_tab name="WASM" cwd="/Users/thor/src/personal/flower/flower_wasm" {
+        pane split_direction="vertical" {
+            pane name="cargo"
+            pane name="term"
+        }
+    }
+}
