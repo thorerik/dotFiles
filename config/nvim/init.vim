@@ -11,6 +11,7 @@ Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " UltiSnips + Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -45,10 +46,10 @@ endif
 let g:airline_theme='murmur'
 
 set background=dark
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:solarized_termcolors = 256
-colorscheme solarized
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+"let g:solarized_termcolors = 256
+colorscheme catppuccin
 
 set nomodeline
 set cursorcolumn
