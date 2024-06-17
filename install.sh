@@ -22,6 +22,7 @@ link_bin()
 [ ! -e ~/.config/nvim ] && xdg_link_config nvim
 [ ! -e ~/.config/kitty ] && xdg_link_config kitty
 [ ! -e ~/.config/zellij ] && xdg_link_config zellij
+[ ! -e ~/.config/bat ] && xdg_link_config bat
 
 # Deps
 if hash git 2>/dev/null; then
