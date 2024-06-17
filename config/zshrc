@@ -10,7 +10,7 @@ if ! zgen saved; then
   zgen oh-my-zsh
 
   # Dev
-  
+
   # Git
   zgen oh-my-zsh plugins/git
   zgen load bobthecow/git-flow-completion
@@ -27,12 +27,15 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/pip
   # Node
   zgen oh-my-zsh plugins/nvm
-  
+
   zgen oh-my-zsh themes/agnoster
 
   zgen load chrissicool/zsh-256color
   #zgen load joel-porquet/zsh-dircolors-solarized
-  
+
+
+  zgen oh-my-zsh plugins/iterm2
+
   if command -v zellij 2>/dev/null >&2; then
     zgen load thorerik/dotfiles config/zsh-plugins/_zellij
   fi
