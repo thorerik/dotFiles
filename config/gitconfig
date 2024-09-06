@@ -1,7 +1,8 @@
 [user]
-	email = thor@thorerik.com
-	name = Thor Erik Lie
-	signingkey = ~/.ssh/signingkey
+  email = thor@thorerik.com
+  name = Thor Erik Lie
+  signingkey = ~/.ssh/signingkey
+  allowedSignersFile = ~/.allowed_signers
 
 [alias]
   lol     = log --oneline --abbrev-commit --graph --decorate --pretty=shortlog
@@ -12,56 +13,63 @@
   cm      = commit -v
   st      = status --branch
   nb      = checkout -b
+  undo    = reset --soft HEAD^
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [rebase]
-	autostash = true
+  autostash = true
 [push]
-	default = simple
+  default = simple
+  autoSetupRemote = true
 [pull]
-	rebase = true
-	autostash = true
+  rebase = true
+  autostash = true
 [commit]
-  gpgsign = true
+  gpgSign = true
 [core]
-	excludesfile = ~/.gitignore
-	editor = nvim
+  excludesfile = ~/.gitignore
+  editor = nvim
+  pager = delta
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	ui = true
-	pager = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = true
+  pager = true
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow
-	frag = magenta bold
-	old = red bold
-	new = green
+  meta = yellow
+  frag = magenta bold
+  old = red bold
+  new = green
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [gpg]
-	format = ssh
+  format = ssh
 [gpg "ssh"]
-	allowedSignersFile = ~/.allowed_signers
+  allowedSignersFile = ~/.allowed_signers
 [format]
   pretty = shortlog
 [pretty]
   shortlog = tformat:%C(red)%h%Creset -%C(bold cyan)%d%Creset%C(bold blue) <%aN>%Creset %s %C(dim green)(%cr)%Creset
 
-
 [includeIf "gitdir:~/src/work/**"]
   path = ~/.gitwork
 [gitbutler]
-	utmostDiscretion = 1
+  utmostDiscretion = 1
+  aiModelProvider = anthropic
+[tag]
+  forceSignAnnotated = true
+[delta]
+  line-numbers = true
