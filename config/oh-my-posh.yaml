@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+final_space: true
+version: 2
+blocks:
+  - type: prompt
+    alignment: left
+    newline: true
+    segments:
+      - type: path
+        style: plain
+        foreground: "blue"
+        background: "transparent"
+        template: '{{ .Path }}'
+        properties:
+          style: full
+      - type: git
+        style: plain
+        foreground: "green"
+        background: "transparent"
+        template: ' {{ .UpstreamIcon }} {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+        properties:
+          fetch_status: true
+          fetch_stash_count: true
+          fetch_worktree_count: true
+          fetch_upstream_icon: true
+          fetch_bare_info: true
+          branch_icon:  
+          branch_identical_icon: ≡
+          branch_ahead_icon: ↑
+          branch_behind_icon: ↓
+          branch_gone_icon: ≢
+          commit_icon: 
+          tag_icon: 
+          rebase_icon: 
+          cherry_pick_icon: 
+          revert_icon: 
+          merge_icon: 
+          no_commits_icon: 
+          github_icon: 
+          gitlab_icon: 
+          bitbucket_icon: 
+          azure_devops_icon: 
+          codecommit_icon: 
+          codeberg_icon: 
+          git_icon: 
+
+  - type: prompt
+    alignment: left
+    newline: true
+    segments:
+      - type: text
+        style: plain
+        foreground_templates: [
+          "{{if gt .Code 0}}red{{end}}",
+          "{{if eq .Code 0}}magenta{{end}}",
+        ]
+        background: 'transparent'
+        template: '❯'
