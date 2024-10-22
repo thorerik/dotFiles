@@ -17,7 +17,7 @@ blocks:
         style: plain
         foreground: "green"
         background: "transparent"
-        template: ' {{ .UpstreamIcon }} {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+        template: ' {{ .UpstreamIcon }} {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}<cyan>{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}</>'
         properties:
           fetch_status: true
           fetch_stash_count: true
