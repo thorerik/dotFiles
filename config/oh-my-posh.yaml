@@ -52,6 +52,13 @@ blocks:
         foreground: 'green'
         background: 'transparent'
         template: " {{ .WorkspaceName }}{{ if .Version }} {{ .Version }}{{ end }}"
+      - type: aws
+        style: plain
+        foreground: 'green'
+        background: 'transparent'
+        template: " {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
+
+
 
   - type: prompt
     alignment: left
