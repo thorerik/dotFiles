@@ -1,7 +1,58 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 final_space: true
 version: 2
+transient_prompt:
+  foreground_templates:
+    - "{{if gt .Code 0}}red{{end}}"
+    - "{{if eq .Code 0}}magenta{{end}}"
+  background: 'transparent'
+  template: '❯ '
+secondary_prompt:
+  foreground: 'magenta'
+  background: 'transparent'
+  template: '❯❯ '
 blocks:
+  - type: rprompt
+    alignment: right
+    overflow: hidden
+    segments:
+      - type: executiontime
+        style: plain
+        foreground: 'green'
+        background: 'transparent'
+        properties:
+          threshold: 1000
+      # - type: docker
+      #   style: plain
+      #   foreground: "green"
+      #   background: "transparent"
+      #   template: "  {{ .Context }} "
+      # - type: kubectl
+      #   style: plain
+      #   foreground: 'green'
+      #   background: 'transparent'
+      #   template: " {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+      - type: npm
+        style: plain
+        foreground: 'green'
+        background: 'transparent'
+        template: " {{ .Full }} "
+      - type: deno
+        style: plain
+        foreground: 'green'
+        background: 'transparent'
+        template: "  {{ .Full }} "
+      - type: bun
+        style: plain
+        foreground: 'green'
+        background: 'transparent'
+        template: " 🥟 {{ .Full }} "
+      - type: terraform
+        style: plain
+        foreground: 'green'
+        background: 'transparent'
+        template: " {{ .WorkspaceName }}{{ if .Version }} {{ .Version }}{{ end }}"
+
   - type: prompt
     alignment: left
     newline: true
@@ -43,7 +94,6 @@ blocks:
           codecommit_icon: 
           codeberg_icon: 
           git_icon: 
-
   - type: prompt
     alignment: left
     newline: true

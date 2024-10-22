@@ -1,5 +1,27 @@
+source "${HOME}/.zgen/zgen.zsh"
+
+export ZGEN_RESET_ON_CHANGE=(${HOME}/dotFiles/config/zshrc ${HOME}/.zsh_local)
+
+if ! zgen saved; then
+  echo "Creating a zgen save"
+
+  zgen oh-my-zsh
+
+  zgen oh-my-zsh plugins/iterm2
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/kubectl
+  zgen oh-my-zsh plugins/nvm
+  zgen oh-my-zsh plugins/rust
+  zgen oh-my-zsh plugins/terraform
+  zgen oh-my-zsh plugins/docker
+  zgen oh-my-zsh plugins/docker-compose
+  zgen oh-my-zsh plugins/ssh-agent
+  zgen oh-my-zsh plugins/brew
+  zgen oh-my-zsh plugins/composer
+
+  zgen save
+fi
 # Init Oh My Posh
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/config.yaml)"
 fi
-
