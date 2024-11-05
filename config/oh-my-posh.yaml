@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 final_space: true
 version: 2
+console_title_template: "{{.Folder}}{{if .Root}} :: root{{end}} :: {{.Shell}}"
 transient_prompt:
   foreground_templates:
     - "{{if gt .Code 0}}red{{end}}"
@@ -32,26 +33,31 @@ blocks:
       #   foreground: 'green'
       #   background: 'transparent'
       #   template: " {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
-      - type: npm
-        style: plain
-        foreground: 'green'
-        background: 'transparent'
-        template: " {{ .Full }} "
-      - type: deno
-        style: plain
-        foreground: 'green'
-        background: 'transparent'
-        template: "  {{ .Full }} "
-      - type: bun
-        style: plain
-        foreground: 'green'
-        background: 'transparent'
-        template: " 🥟 {{ .Full }} "
-      - type: terraform
-        style: plain
-        foreground: 'green'
-        background: 'transparent'
-        template: " {{ .WorkspaceName }}{{ if .Version }} {{ .Version }}{{ end }}"
+      #- type: npm
+      #  style: plain
+      #  foreground: 'green'
+      #  background: 'transparent'
+      #  template: " {{ .Full }} "
+      #- type: deno
+      #  style: plain
+      #  foreground: 'green'
+      #  background: 'transparent'
+      #  template: "  {{ .Full }} "
+      #- type: bun
+      #  style: plain
+      #  foreground: 'green'
+      #  background: 'transparent'
+      #  template: " 🥟 {{ .Full }} "
+      #- type: rust
+      #  style: plain
+      #  foreground: 'green'
+      #  background: 'transparent'
+      #  template: "  {{ .Full }} "
+      #- type: terraform
+      #  style: plain
+      #  foreground: 'green'
+      #  background: 'transparent'
+      #  template: " {{ .WorkspaceName }}{{ if .Version }} {{ .Version }}{{ end }}"
       - type: aws
         style: plain
         foreground: 'green'
