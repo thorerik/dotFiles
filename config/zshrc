@@ -1,5 +1,4 @@
 source "${HOME}/.zgen/zgen.zsh"
-
 export ZGEN_RESET_ON_CHANGE=(${HOME}/dotFiles/config/zshrc ${HOME}/.zsh_local)
 
 if ! zgen saved; then
