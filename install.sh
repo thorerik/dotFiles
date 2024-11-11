@@ -47,6 +47,7 @@ link_config vimrc
 link_config gitignore
 link_config gitconfig
 link_config Xmodmap
+link_config oh-my-posh.yaml
 
 # bins
 link_bin auth
